@@ -10,11 +10,22 @@
 </head>
 <body>
     <h1>MyApp</h1>
-    <h2>About</h2>
+    <h2>Register</h2>
     <p>This is the register page</p>
     <nav>
         <a href="/">Home</a>
         <a href="/login">Login</a>
     </nav>
+    <form action="/auth/register" method="POST">
+        <div>
+            <label for="email">Email</label>
+            <input type="text" id="email" name="username" required>
+        </div>
+        <div>
+            <label for="password">Password</label>
+            <input type="password" id="password" name="password" required>
+        </div>
+        <button type="submit">Register</button>
+    </form>
 </body>
 </html>
