@@ -4,28 +4,30 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MyApp</title>
+    <title>TravelApp | LogIn</title>
 
     <link href="./css/styles.css" rel="stylesheet" type="text/css">
 </head>
-<body>
-    <h1>MyApp</h1>
-    <h2>Login</h2>
-    <p>This is the login page</p>
-    <nav>
-        <a href="/">Home</a>
-        <a href="/register">Register</a>
-    </nav>
-    <form action="/auth/login" method="POST">
-        <div>
-            <label for="email">Email</label>
-            <input type="text" id="email" name="username" required>
+<body style="background-color: aqua;">
+
+    <div class="registration">
+        <div class="frame-1">
+          <div class="place" onclick="window.location.href='register.html'">Register</div>
         </div>
-        <div>
-            <label for="password">Password</label>
-            <input type="password" id="password" name="password" required>
-        </div>
-        <button type="submit">Login</button>
+    </div> 
+    
+    <h1 class="title poppins-black-white">Log In</h1>
+
+    <form method="POST" action="index.html">
+        
+    <div class="login-container">
+        <input type="text" placeholder="Name">
+        <input type="email" placeholder="Email">
+        <input type="password" placeholder="Password">
+    </div>
+
+    <button class="registerBtn place" type="submit">Log In</button>
     </form>
+
 </body>
 </html>
