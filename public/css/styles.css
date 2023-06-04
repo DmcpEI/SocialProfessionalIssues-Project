@@ -1,1 +1,305 @@
-@import url("https://fonts.googleapis.com/css?family=Montserrat:500,700,400italic,400|Raleway:700|Poppins:700,900,400");
+@import url("https://fonts.googleapis.com/css?family=Montserrat:500,700,400italic,400|Raleway:700|Poppins:700,900,400|Roboto:900");
+
+* {
+    margin: 0px;
+    padding: 0px;
+}
+
+.WebContainer {
+    width: 100%;
+    height: auto;
+}
+
+.backgroundImg {
+    width: 100%;
+    min-height: 100%;
+    background-image:url(https://wallpaperaccess.com/full/424833.jpg);
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+}
+
+.travel-app {
+    color: var(--white);
+    font-family: var(--font-family-poppins); 
+    font-size: var(--font-size-xs);
+    font-weight: 900;
+    height: 100px; 
+    left: 57px;
+    letter-spacing: 0;
+    line-height: normal;
+    position: absolute;
+    top: 20px;
+    width: 226px;
+}
+
+.valign-text-middle {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.registration {
+    position: absolute;
+    right: 30px;
+    top: 30px;
+    display: flex;
+}
+
+.frame-1 {
+    align-items: center;
+    border: 2px solid;
+    border-color: var(--white);
+    border-radius: 12px;
+    display: flex;
+    height: 53px;
+    justify-content: center;
+    padding: 5px 10px;
+    width: 105px;
+}
+
+.frame-2 {
+    border: none;
+    margin-right: 10px;
+}
+
+.place {
+    color: var(--white);
+    font-family: var(--font-family-raleway);
+    font-size: var(--font-size-xxs);
+    font-weight: 700;
+    letter-spacing: 0;
+    line-height: normal;
+    white-space: nowrap;
+}
+
+
+.mountains { 
+    align-items: center; 
+    display: flex; 
+    gap: 10px; 
+    height: 18px; 
+    left: 81px;
+    position: absolute;
+    top: 200px; width: 250px;
+}
+.beaches {
+    letter-spacing: 0;
+    line-height: normal;
+    margin-right: -64px;
+    margin-top: -2px;
+    position: relative; 
+    width: fit-content;
+}
+.mountains-item {
+    letter-spacing: 0;
+    line-height: normal;
+    margin-top: -2px;
+    position: relative;
+    width: fit-content;
+}
+.rectangle {
+    background-color: var(--white);
+    height: 10px;
+    min-width: 2px;
+    position: relative;
+}
+
+
+.travel-far-travel-w { 
+    left: 8px; 
+    letter-spacing: 0; 
+    line-height: normal;
+    position: absolute;
+    top: 50px;
+    width: 1167px;
+}
+.span1 {
+    color: var(--white);
+    font-family: var(--font-family-montserrat);
+    font-size: var (--font-size-s);
+    font-style: italic;
+    font-weight: 400;
+}
+
+.bg {
+    background-color: #ffffff66;
+    border-radius: 12px;
+    box-shadow: 1.19px 1.42px 3.15px #00000004, 5.22px 6.26px 6.52px #00000007, 12.8px 15.36px 13px #00000009,
+      24.66px 29.59px 25.48px #0000000b, 41.49px 49.79px 46.85px #0000000e, 64.02px 76.82px 80px #00000012;
+    height: 123px;
+    position: absolute;
+    top: 280px;
+    width: 1200px;
+}
+
+.title {
+    text-align: center;
+    position: absolute;
+    left: 50%;
+    top: 25%;
+    transform: translate(-50%, -50%);
+}
+
+.register-container {
+    text-align: center;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    background-color: rgba(255, 255, 255, 0.4);
+    border-radius: 12px;
+    border-color: white;
+    box-shadow: 1.19px 1.42px 3.15px #00000004, 5.22px 6.26px 6.52px #00000007, 12.8px 15.36px 13px #00000009,
+      24.66px 29.59px 25.48px #0000000b, 41.49px 49.79px 46.85px #0000000e, 64.02px 76.82px 80px #00000012;
+    height: 310px;
+    width: 50%;
+    position: absolute;
+    top: 400px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+.register-container input {
+    margin-top: 20px;
+    height: 25px;
+    width: 50%;
+}
+
+.registerBtn {
+    text-align: center;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #ffffff66;
+    border-radius: 12px;
+    border-color: white;
+    height: 50px;
+    width: 25%;
+    position: absolute;
+    top: 600px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.login-container {
+    text-align: center;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    background-color: rgba(255, 255, 255, 0.4);
+    border-radius: 12px;
+    border-color: white;
+    box-shadow: 1.19px 1.42px 3.15px #00000004, 5.22px 6.26px 6.52px #00000007, 12.8px 15.36px 13px #00000009,
+      24.66px 29.59px 25.48px #0000000b, 41.49px 49.79px 46.85px #0000000e, 64.02px 76.82px 80px #00000012;
+    height: 170px;
+    width: 50%;
+    position: absolute;
+    top: 400px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+.login-container input {
+    margin-top: 20px;
+    height: 25px;
+    width: 50%;
+}
+
+.title2 {
+    color: var(--white);
+    font-size: var(--font-size-xs);
+    transform: translate(-50%, -50%);
+    letter-spacing: 0;
+    line-height: normal;
+    font-family: var(--font-family-roboto); 
+    font-weight: 900;
+    height: 55px; 
+    margin-left: 300px;
+    margin-top: 150px;
+    width: 493px;
+}
+
+.trips-container {
+    text-align: center;
+    position: absolute;
+    left: 15%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    background-color: rgba(255, 255, 255, 0.4);
+    border-radius: 12px;
+    border-color: white;
+    box-shadow: 1.19px 1.42px 3.15px #00000004, 5.22px 6.26px 6.52px #00000007, 12.8px 15.36px 13px #00000009,
+      24.66px 29.59px 25.48px #0000000b, 41.49px 49.79px 46.85px #0000000e, 64.02px 76.82px 80px #00000012;
+    height: 400px;
+    width: 20%;
+    top: 400px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+
+/* Variables */
+
+:root {
+    --black:rgba(0, 0, 0, 1);
+    --chambray:rgba(47, 78, 132, 1);
+    --river-bed:rgba(62, 73, 88, 1);
+    --cinderella:rgba(248, 226, 214, 1);
+    --white:rgba(255, 255, 255, 1);
+
+    --font-size-xxxxxs: 12px;
+    --font-size-xxxxs: 14px;
+    --font-size-xxxs: 16px;
+    --font-size-xxs: 20px;
+    --font-size-xs: 36px;
+    --font-size-s: 40px;
+    --font-size-m: 50px;
+    --font-size-l: 60px;
+    --font-size-xl: 70px;
+
+    --font-family-montserrat: "Montserrat"; 
+    --font-family-poppins: "Poppins"; 
+    --font-family-raleway: "Raleway";
+    --font-family-roboto: "Roboto";
+}
+
+/* Classes */
+
+
+.montserrat-bold-white-50px { 
+    color: var(--white);
+    font-family: var(--font-family-montserrat); 
+    font-size: var(--font-size-m);
+    font-weight: 700; 
+    font-style: normal;
+}
+.poppins-black-white{ 
+    color: var(--white);
+    font-family: var(--font-family-poppins); 
+    font-size: var(--font-size-l);
+    font-weight: 900;
+    font-style: normal;
+}
+.montserrat-medium-white-16px { 
+    color: var(--white);
+    font-family: var(--font-family-montserrat); 
+    font-size: var(--font-size-xxxs);
+    font-weight: 500;
+    font-style: normal;
+}
+.poppins-normal-river-bed-14px {
+    color: var(--river-bed);
+    font-family: var(--font-family-poppins); 
+    font-size: var(--font-size-xxxxs);
+    font-weight: 400;
+    font-style: normal;
+}

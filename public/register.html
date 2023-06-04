@@ -4,28 +4,34 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MyApp</title>
+    <title>TravelApp | Register</title>
 
     <link href="./css/styles.css" rel="stylesheet" type="text/css">
 </head>
-<body>
-    <h1>MyApp</h1>
-    <h2>Register</h2>
-    <p>This is the register page</p>
-    <nav>
-        <a href="/">Home</a>
-        <a href="/login">Login</a>
-    </nav>
-    <form action="/auth/register" method="POST">
-        <div>
-            <label for="email">Email</label>
-            <input type="text" id="email" name="username" required>
+<body style="background-color: aqua;">
+
+    <div class="registration">
+        <div class="frame-1">
+          <div class="place" onclick="window.location.href='login.html'">Log In</div>
         </div>
-        <div>
-            <label for="password">Password</label>
-            <input type="password" id="password" name="password" required>
-        </div>
-        <button type="submit">Register</button>
+    </div> 
+    
+    <h1 class="title poppins-black-white">Register</h1>
+
+    <form method="POST" action="index.html">
+        
+    <div class="register-container">
+        <input type="text" placeholder="Name">
+        <input type="email" placeholder="Email">
+        <input type="text" placeholder="BirthDate">
+        <input type="text" placeholder="Country">
+        <input type="text" placeholder="Passport Number">
+        <input type="password" placeholder="Password">
+    </div>
+
+    <button class="registerBtn place" type="submit">Register</button>
+
     </form>
+
 </body>
 </html>

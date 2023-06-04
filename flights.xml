@@ -1,0 +1,30 @@
+<flights>
+  <flight>
+    <origin>France</origin>
+    <destination>USA</destination>
+    <price>100</price>
+    <duration>8 hours</duration>
+    <stops>
+      <stop>Germany</stop>
+      <stop>Canada</stop>
+    </stops>
+  </flight>
+  <flight>
+    <origin>France</origin>
+    <destination>USA</destination>
+    <price>200</price>
+    <duration>6 hours</duration>
+    <stops>
+      <stop>Germany</stop>
+    </stops>
+  </flight>
+  <flight>
+    <origin>France</origin>
+    <destination>USA</destination>
+    <price>300</price>
+    <duration>10 hours</duration>
+    <stops>
+      <!-- No stops -->
+    </stops>
+  </flight>
+</flights>
