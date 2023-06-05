@@ -1,0 +1,274 @@
+@import url("https://fonts.googleapis.com/css?family=Montserrat:500,700,400italic,400|Raleway:700|Poppins:700,900,400|Roboto:900");
+
+.hidden,
+.hidden * {
+    pointer-events: none;
+    visibility: hidden;
+}
+
+.register{
+    height: 100%;
+    /* overflow: hidden; */
+    width: 100%;
+}
+
+.mx-auto {
+    margin-right: auto!important;
+    margin-left: auto!important;
+}
+
+.p-2 {
+    padding: .5rem!important;
+}
+
+.translate-middle {
+    transform: translate(-50%,-50%)!important;
+}
+
+.start-50 {
+    left: 50%!important;
+}
+
+.top-50 {
+    top: 50%!important;
+}
+
+.overlap-group7{
+    align-items: center;
+    background-color: #8fe2c4;
+    display: flex;
+    flex-direction: column;
+    margin-left: -11px;
+    margin-top: -10px;
+    min-height: 852px;
+    padding: 46px 68px;
+    width: 1301px;
+    
+}
+
+
+
+.password{
+    background-color: #e5f8e4; /* color of the background */
+    border-radius: 12px; /* round corner */
+    display: flex; /* content in the middle */
+    height: 67px; /* Height of the content */
+    margin-top: 45px;
+    max-width: 100px;
+    padding: 24.5px 21.1px;
+    
+}
+
+.register-button{
+    background-color: var(--porsche);
+    border-radius: 12px;
+    display: flex;
+    height: 67px;
+    margin-top: 21px;
+    max-width: 15%;
+    padding: 24.5px 21.1px;
+}
+
+
+
+.valign-text-middle { 
+    display: flex;
+    flex-direction: column; 
+    justify-content: center;
+}
+
+.register .input-2 { 
+    height: 18px;
+    letter-spacing: 0;
+    line-height: 20px;
+    white-space: nowrap;
+}
+
+.input-1 {
+    text-align: center;
+    width: 171px;
+}
+
+.title{
+    height: 55px;
+    letter-spacing: 0;
+    line-height: normal;
+    margin-left: 31px;
+    margin-top: 83px;
+    text-align: center;
+    width: 226px;
+}
+
+
+
+.flex-row{
+    align-items: flex-start;
+    align-self: flex-start;
+    display: flex;
+    gap: 788px;
+    height: 64px;
+    min-width: 1119px;
+}
+
+.travel-app{
+    align-self: flex-end;
+    height: 55px;
+    letter-spacing: 0;
+    line-height: normal;
+    width: 226px;
+}
+
+.frame-1{
+    align-items: center;
+    border: 2px solid;
+    border-color: var(--white);
+    border-radius: 12px;
+    display: flex;
+    gap: 10px;
+    height: 53px;
+    justify-content: center;
+    padding: 13px 44px;
+    position: relative;
+    width: 105px;
+}
+
+.log-in{
+    color: var(--white);
+    font-family: var(--font-family-poppins);
+    font-size: var(--font-size-1);
+    font-weight: 700;
+    letter-spacing: 0;
+    line-height: normal;
+    margin-left: -21.5px;
+    margin-right: -21.5px;
+    margin-top: -3.5px;
+    position: relative;
+    width: fit-content;
+}
+
+.overlap-group8 {
+    align-items: flex-start;
+    background-color: #ffffff66;
+    border-radius: 12px;
+    box-shadow: 1.19px 1.42px 3.15px #00000004, 5.22px 6.26px 6.52px #00000007, 12.8px 15.36px 13px #00000009,
+    24.66px 29.59px 25.48px #0000000b, 41.49px 49.79px 46.85px #0000000e, 64.02px 76.82px 80px #00000012;
+    display: flex;
+    flex-direction:column-reverse;
+    gap: 39px;
+    margin-left: 1px;
+    margin-top: 65px;
+    min-height: 267px;
+    padding: 46px 76px;
+    width: 87%;
+}
+
+.overlap-group-container {
+    gap: 141px;
+    min-width: 921px;
+}
+
+.register .overlap-group-2 { 
+    align-items: flex-start; 
+    display: flex;
+}
+
+.overlap-group-container-1 {
+    border-radius: 12px;
+    height: 67px;
+    position: relative;
+    width: 213px;
+}
+
+.overlap-group-1 {
+    background-color: var(--porsche);
+    border-radius: 12px;
+    height: 67px;
+    justify-content: flex-end;
+    left: 0;
+    min-width: 213px;
+    padding: 24.5px 21.1px;
+    position: absolute;
+    top: 0;
+}
+
+.overlap-group3 { 
+    align-items: flex-start; 
+    background-color: #e5f8e4; 
+    border-radius: 12px;
+    display: flex;
+    height: 67px;
+    justify-content: flex-end;
+    left: 0;
+    min-width: 213px;
+    padding: 24.5px 21.1px;
+    position: absolute;
+    top: 0;
+}
+
+.overlap-group {
+    align-items: flex-start;
+    background-color: var(--frostee);
+    border-radius: 12px;
+    display: flex;
+    height: 67px;
+    justify-content: flex-end;
+    min-width: 213px;
+    padding: 24.5px 21.1px;
+}
+
+.register .button-2 {
+    align-items: flex-start;
+    display: flex;
+    gap: 141px;
+}
+
+.button {
+    min-width: 923px;
+}
+
+.button-1 {
+    min-width: 569px;
+}
+
+.middle{
+    
+}
+
+:root{
+    --black: rgba(0,0,0,1);
+    --parsley: rgba(17,93,38,1);
+    --frostee: rgba(230, 249, 228, 1);
+    --porsche: rgba(231, 172, 114, 1);
+    --white: rgba(255, 255, 255, 1);
+
+    --font-size-m: 14px;
+    --font-size-1: 20px;
+    --font-size-x1: 36px;
+
+    --font-family-poppins: "Poppins";
+}
+
+.poppins-bold-white-14px {
+
+    color: var(--white);
+    font-family: var(--font-family-poppins);
+    font-size: var(--font-size-m);
+    font-weight: 700;
+    font-style: normal;
+}
+
+.poppins-bold-parsley-14px { 
+    color: var(--parsley);
+    font-family: var(--font-family-poppins);
+    font-size: var(--font-size-m);
+    font-weight: 700;
+    font-style: normal;
+}
+
+.poppins-black-white-36px {
+    color: var(--white);
+    font-family: var(--font-family-poppins);
+    font-size: var(--font-size-x1);
+    font-weight: 900;
+    font-style: normal;
+}

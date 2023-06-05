@@ -6,32 +6,76 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>TravelApp | Register</title>
 
-    <link href="./css/styles.css" rel="stylesheet" type="text/css">
+    <link href="./css/register.css" rel="stylesheet" type="text/css">
 </head>
-<body style="background-color: aqua;">
+<body>
 
-    <div class="registration">
-        <div class="frame-1">
-          <div class="place" onclick="window.location.href='login.html'">Log In</div>
+    <div class="register screen">
+        <div class="overlap-group7">
+            <div class="flex-row">
+                <div class="travel-app valign-text-middle poppins-black-white-36px">Travel App</div>
+                <div class="frame-1">
+                    <div class="log-in">Log In</div>
+                </div>
+            </div>
+            
+            <h1 class="title valign-text-middle poppins-black-white-36px">Register</h1>
+            
+            <form method = "POST" action="index.html">
+                <div class="overlap-group8">
+
+                    
+                    <div class="overlap-group">
+                        <input type="text" placeholder="Pasword" class="input-2 valign-text-middle poppins-bold-parsley-14px" style="height: 90%; background-color: #e5f8e4; border: none;">
+                    </div>
+                    
+
+                    <div class="overlap-group-container overlap-group-2">
+                        <div class="overlap-group-container-1">
+                            <div class="overlap-group">
+                                <input type="text" placeholder="Email" class="input-2 valign-text-middle poppins-bold-parsley-14px" style="height: 90%; background-color: #e5f8e4; border: none;">
+                            </div>
+                        </div>
+
+                        <div class="overlap-group">
+                            <input type="text" placeholder="Country" class="input-2 valign-text-middle poppins-bold-parsley-14px" style="height: 90%; background-color: #e5f8e4; border: none;">
+                        </div>
+
+                        <div class="overlap-group"> 
+                            <input type="text" placeholder="Passport Number" class="input-2 valign-text-middle poppins-bold-parsley-14px" style="height: 90%; background-color: #e5f8e4; border: none;">
+                        </div>
+                    </div>
+
+                    <div class="overlap-group-container overlap-group-2">
+                        <div class="overlap-group-container-1">
+                            <div class="overlap-group">
+                                <input type="text" placeholder="Your Name" class="input-2 valign-text-middle poppins-bold-parsley-14px" style="height: 90%; background-color: #e5f8e4; border: none;">
+                            </div>
+                        </div>
+
+                        <div class="overlap-group">
+                            <input type="text" placeholder="Your Surname" class="input-2 valign-text-middle poppins-bold-parsley-14px" style="height: 90%; background-color: #e5f8e4; border: none;">
+                        </div>
+
+                        <div class="overlap-group"> 
+                            <label for="birthday" class="input-2 valign-text-middle poppins-bold-parsley-14px mx-auto top-50 start-50" style="width:50% ; height: 90%; background-color: #e5f8e4; border: none; ">Birthday:</label>
+                            <input type="date" placeholder="Your BirthDate" class="input-2 valign-text-middle poppins-bold-parsley-14px" style="height: 90%; background-color: #e5f8e4; border: none;">
+                        </div>
+                    </div>
+                    
+                </div>
+
+                <div class="register-button">
+                    <button class="valign-text-middle poppins-bold-parsley-14px" style="border: none; background-color: var(--porsche);" type="submit">Register Now</button>
+                </div>
+                
+            </form>
         </div>
-    </div> 
-    
-    <h1 class="title poppins-black-white">Register</h1>
-
-    <form method="POST" action="index.html">
-        
-    <div class="register-container">
-        <input type="text" placeholder="Name">
-        <input type="email" placeholder="Email">
-        <input type="text" placeholder="BirthDate">
-        <input type="text" placeholder="Country">
-        <input type="text" placeholder="Passport Number">
-        <input type="password" placeholder="Password">
     </div>
 
-    <button class="registerBtn place" type="submit">Register</button>
+    
 
-    </form>
+
 
 </body>
 </html>
