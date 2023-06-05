@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -8,67 +9,63 @@
 
     <link href="./css/register.css" rel="stylesheet" type="text/css">
 </head>
-<body>
 
-    <div class="register screen">
-        <div class="overlap-group7">
-            <div class="flex-row">
-                <div class="travel-app valign-text-middle poppins-black-white-36px">Travel App</div>
-                
-                <div class="frame-1">
-                    <a href="login.html" class="log-in mx-auto" style="background-color: #8fe2c4;" >Log In</a>
-                </div>
+<body class="color-background">
 
-            </div>
-            
-            <h1 class="title valign-text-middle poppins-black-white-36px">Register</h1>
-            
-            <form method = "POST" action="index.html">
-                <div class="overlap-group8">
-                    
-                    <div class="overlap-group-container overlap-group-2">
-                        <div class="overlap-group-container-1">
-                            <div class="overlap-group">
-                                <input type="text" placeholder="Country" class="input-2 valign-text-middle poppins-bold-parsley-14px" style="height: 90%; background-color: #e5f8e4; border: none;">
-                            </div>
-                        </div>
+    <div class="gap-logo-button">
 
-                        <div class="overlap-group"> 
-                            <input type="text" placeholder="Passport Number" class="input-2 valign-text-middle poppins-bold-parsley-14px" style="height: 90%; background-color: #e5f8e4; border: none;">
-                        </div>
+        <div class="logo poppins-black-white-36px">Travel App</div>
 
-                        <div class="overlap-group">
-                            <input type="text" placeholder="Pasword" class="input-2 valign-text-middle poppins-bold-parsley-14px" style="height: 90%; background-color: #e5f8e4; border: none;">
-                        </div>
-                    </div>
-
-                    <div class="overlap-group-container overlap-group-2">
-                        <div class="overlap-group-container-1">
-                            <div class="overlap-group">
-                                <input type="text" placeholder="Your Name" class="input-2 valign-text-middle poppins-bold-parsley-14px" style="height: 90%; background-color: #e5f8e4; border: none;">
-                            </div>
-                        </div>
-
-                        <div class="overlap-group"> 
-                            <label for="birthday" class="input-2 valign-text-middle poppins-bold-parsley-14px mx-auto top-50 start-50" style="width:50% ; height: 90%; background-color: #e5f8e4; border: none; ">Birthday:</label>
-                            <input type="date" placeholder="Your BirthDate" class="input-2 valign-text-middle poppins-bold-parsley-14px" style="height: 90%; background-color: #e5f8e4; border: none;">
-                        </div>
-
-                        <div class="overlap-group">
-                            <input type="text" placeholder="Email" class="input-2 valign-text-middle poppins-bold-parsley-14px" style="height: 90%; background-color: #e5f8e4; border: none;">
-                        </div>
-
-                    </div>
-                    
-                </div>
-
-                <div class="register-button">
-                    <button class="poppins-bold-parsley-14px" style="border: none; background-color: var(--porsche);" type="submit">Register Now</button>
-                </div>
-                
-            </form>
+        <div class="login-button-frame">
+            <a href="login.html" class="login-button">Login</a>
         </div>
+
     </div>
+
+    <div>
+        <h1 class="title-middle poppins-black-white-36px">Register</h1>
+    </div>
+
+    <form class="form-border" method="POST" action="index.html">
+
+        <div class="gap-form-input">
+
+            <div class="input-style">
+                <input type="text" placeholder="Name" class="poppins-bold-parsley-14px" style="background-color: #e5f8e4; border: none;">
+            </div>
+
+            <div class="input-style">
+                <label class="poppins-bold-parsley-14px">Birthdate:</label>
+                <input type="date" placeholder="Date" class="poppins-bold-parsley-14px" style="background-color: #e5f8e4; border: none;">
+            </div>
+
+            <div class="input-style">
+                <input type="text" placeholder="Email" class="poppins-bold-parsley-14px" style="background-color: #e5f8e4; border: none;">
+            </div>
+
+        </div>
+        
+        <div class="gap-form-input">
+
+            <div class="input-style">
+                <input type="text" placeholder="Country" class="poppins-bold-parsley-14px" style="background-color: #e5f8e4; border: none;">
+            </div>
+
+            <div class="input-style">
+                <input type="text" placeholder="Passport Number" class="poppins-bold-parsley-14px" style="background-color: #e5f8e4; border: none;">
+            </div>
+
+            <div class="input-style">
+                <input type="password" placeholder="Password" class="poppins-bold-parsley-14px" style="background-color: #e5f8e4; border: none;">
+            </div>
+
+        </div>
+
+        <div class="submit-style">
+            <button class="poppins-bold-parsley-14px" style="width: 100%; border: none; background-color: var(--porsche);" type="submit">Register</button>
+        </div>
+
+    </form>
 
 </body>
 </html>

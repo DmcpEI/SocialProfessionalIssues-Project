@@ -4,16 +4,16 @@
     background-color: #8fe2c4;
 }
 
+.logo{
+    margin-left: 3.9%;
+    margin-top: 3.8%;
+}
+
 .gap-logo-button{
     align-items: flex-start;
     align-self: flex-start;
     display: flex;
     gap: 59%;
-}
-
-.logo{
-    margin-left: 3.9%;
-    margin-top: 3.8%;
 }
 
 .registerbutton{
