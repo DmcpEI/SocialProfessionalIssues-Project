@@ -7,8 +7,12 @@ const client = new MongoClient(uri);
 const database = client.db('Social');
 const flights = database.collection('Flights');
 const users = database.collection('Users');
+const hotels = database.collection('Hotels');
+const overlands = database.collection('Overlands');
 
 module.exports = {
     flights,
     users,
+    hotels,
+    overlands,
 };
