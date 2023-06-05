@@ -6,11 +6,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>TravelApp | LogIn</title>
 
-    <link href="./css/styles.css" rel="stylesheet" type="text/css">
+    <link href="./css/login.css" rel="stylesheet" type="text/css">
 </head>
-<body style="background-color: aqua;">
+<body class="color-background">
 
-    <div class="registration">
+    <!-- <div class="registration">
         <div class="frame-1">
           <div class="place" onclick="window.location.href='register.html'">Register</div>
         </div>
@@ -27,7 +27,35 @@
     </div>
 
     <button class="registerBtn place" type="submit">Log In</button>
+    </form> -->
+
+    <div class="gap-logo-button">
+        <div class="logo poppins-black-white-36px">Travel App</div>
+        <div class="register-button-frame">
+            <a href="register.html" class="registerbutton">Register</a>
+        </div>
+    </div>
+
+    <div>
+        <h1 class="title-middle poppins-black-white-36px">Log In</h1>
+    </div>
+
+    <form class="form-border" method="POST" action="index.html">
+        <div class="input-style">
+            <input type="text" placeholder="Name" class="poppins-bold-parsley-14px" style="width: 95%; background-color: #e5f8e4; border: none;">
+        </div>
+        <div class="input-style">
+            <input type="text" placeholder="Email" class="poppins-bold-parsley-14px" style="width: 95%; background-color: #e5f8e4; border: none;">
+        </div>
+        <div class="input-style">
+            <input type="text" placeholder="Password" class="poppins-bold-parsley-14px" style="width: 95%; background-color: #e5f8e4; border: none;">
+        </div>
+        
+        <div class="submit-style">
+            <button class="poppins-bold-parsley-14px" style="width: 100%; border: none; background-color: var(--porsche);" type="submit">Log In</button>
+        </div>
     </form>
+    
 
 </body>
 </html>
