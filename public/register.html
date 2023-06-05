@@ -1,37 +1,105 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>TravelApp | Register</title>
 
-    <link href="./css/styles.css" rel="stylesheet" type="text/css">
+    <link href="./css/register.css" rel="stylesheet" type="text/css">
 </head>
-<body style="background-color: aqua;">
 
-    <div class="registration">
-        <div class="frame-1">
-          <div class="place" onclick="window.location.href='login.html'">Log In</div>
+<body class="color-background">
+
+    <div class="gap-logo-button">
+
+        <div class="logo poppins-black-white-36px">Travel App</div>
+
+        <div class="login-button-frame">
+            <a href="login.html" class="login-button">Login</a>
         </div>
-    </div> 
-    
-    <h1 class="title poppins-black-white">Register</h1>
 
-    <form method="POST" action="index.html">
-        
-    <div class="register-container">
-        <input type="text" placeholder="Name">
-        <input type="email" placeholder="Email">
-        <input type="text" placeholder="BirthDate">
-        <input type="text" placeholder="Country">
-        <input type="text" placeholder="Passport Number">
-        <input type="password" placeholder="Password">
     </div>
 
-    <button class="registerBtn place" type="submit">Register</button>
+    <div>
+        <h1 class="title-middle poppins-black-white-36px">Register</h1>
+    </div>
+
+    <form class="form-border" id="registrationForm">
+
+        <div class="gap-form-input">
+
+            <div class="input-style">
+                <input type="text" placeholder="Name" name="name" class="poppins-bold-parsley-14px" style="background-color: #e5f8e4; border: none;">
+            </div>
+
+            <div class="input-style">
+                <label class="poppins-bold-parsley-14px">Birthdate:</label>
+                <input type="date" placeholder="Date" name="birthdate" class="poppins-bold-parsley-14px" style="background-color: #e5f8e4; border: none;">
+            </div>
+
+            <div class="input-style">
+                <input type="text" placeholder="Email" name="email" class="poppins-bold-parsley-14px" style="background-color: #e5f8e4; border: none;">
+            </div>
+
+        </div>
+        
+        <div class="gap-form-input">
+
+            <div class="input-style">
+                <input type="text" placeholder="Country" name="country" class="poppins-bold-parsley-14px" style="background-color: #e5f8e4; border: none;">
+            </div>
+
+            <div class="input-style">
+                <input type="text" placeholder="Passport Number" name="passport" class="poppins-bold-parsley-14px" style="background-color: #e5f8e4; border: none;">
+            </div>
+
+            <div class="input-style">
+                <input type="password" placeholder="Password" name="password" class="poppins-bold-parsley-14px" style="background-color: #e5f8e4; border: none;">
+            </div>
+
+        </div>
+
+        <div class="submit-style">
+            <button class="poppins-bold-parsley-14px" style="width: 100%; border: none; background-color: var(--porsche);" type="submit">Register</button>
+        </div>
 
     </form>
-
-</body>
-</html>
+  
+    <script>
+      document.getElementById('registrationForm').addEventListener('submit', async (event) => {
+        event.preventDefault();
+  
+        const form = event.target;
+        const formData = new FormData(form);
+        const requestData = Object.fromEntries(formData);
+  
+        try {
+          const response = await fetch('/users/', {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(requestData)
+          });
+  
+          if (response.ok) {
+            const data = await response.json();
+            if (data.redirect) {
+              window.location.href = data.redirect;
+            }
+          } else {
+            const errorData = await response.json();
+            console.error('Registration failed:', errorData.error);
+            // Handle error display on the frontend
+          }
+        } catch (error) {
+          console.error('Registration failed:', error);
+          // Handle error display on the frontend
+        }
+      });
+    </script>
+  
+  </body>
+  </html>

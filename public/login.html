@@ -6,11 +6,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>TravelApp | LogIn</title>
 
-    <link href="./css/styles.css" rel="stylesheet" type="text/css">
+    <link href="./css/login.css" rel="stylesheet" type="text/css">
 </head>
-<body style="background-color: aqua;">
+<body class="color-background">
 
-    <div class="registration">
+    <!-- <div class="registration">
         <div class="frame-1">
           <div class="place" onclick="window.location.href='register.html'">Register</div>
         </div>
@@ -27,7 +27,68 @@
     </div>
 
     <button class="registerBtn place" type="submit">Log In</button>
-    </form>
+    </form> -->
 
-</body>
-</html>
+    <div class="gap-logo-button">
+        <div class="logo poppins-black-white-36px">Travel App</div>
+        <div class="register-button-frame">
+            <a href="register.html" class="registerbutton">Register</a>
+        </div>
+    </div>
+
+    <div>
+        <h1 class="title-middle poppins-black-white-36px">Log In</h1>
+    </div>
+
+    <form class="form-border" id="loginForm">
+        <div class="input-style">
+            <input type="text" placeholder="Name" name="name" class="poppins-bold-parsley-14px" style="width: 95%; background-color: #e5f8e4; border: none;">
+        </div>
+        <div class="input-style">
+            <input type="text" placeholder="Email" name="email" class="poppins-bold-parsley-14px" style="width: 95%; background-color: #e5f8e4; border: none;">
+        </div>
+        <div class="input-style">
+            <input type="password" placeholder="Password" name="password" class="poppins-bold-parsley-14px" style="width: 95%; background-color: #e5f8e4; border: none;">
+        </div>
+        
+        <div class="submit-style">
+            <button class="poppins-bold-parsley-14px" style="width: 100%; border: none; background-color: var(--porsche);" type="submit">Log In</button>
+        </div>
+    </form>
+  
+    <script>
+      document.getElementById('loginForm').addEventListener('submit', async (event) => {
+        event.preventDefault();
+  
+        const form = event.target;
+        const formData = new FormData(form);
+        const requestData = Object.fromEntries(formData);
+  
+        try {
+          const response = await fetch('/users/login', {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(requestData)
+          });
+  
+          if (response.ok) {
+            const data = await response.json();
+            if (data.redirect) {
+              window.location.href = data.redirect;
+            }
+          } else {
+            const errorData = await response.json();
+            console.error('Login failed:', errorData.message);
+            // Handle error display on the frontend
+          }
+        } catch (error) {
+          console.error('Login failed:', error);
+          // Handle error display on the frontend
+        }
+      });
+    </script>
+  
+  </body>
+  </html>
