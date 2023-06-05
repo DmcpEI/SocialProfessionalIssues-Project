@@ -1,24 +1,28 @@
 const express = require('express');
-
 const path = require('path');
-const db = require('./db')
-const authMiddleware = require('./routes/auth/authMiddleware')
+const cors = require('cors');
+const bodyParser = require('body-parser');
+
+const userRouter = require('./router/userRouter');
+const flightRouter = require('./router/flightRouter');
+const hotelRouter = require('./router/hotelRouter');
+const overlandRouter = require('./router/overlandRouter');
+
 const app = express();
 
-const cookieParser = require('cookie-parser');
 const PORT = process.env.PORT || 3000;
 
-
 app.use(express.json());
-app.use(cookieParser());
 app.use(express.urlencoded({ extended: false }));
 app.use(express.static(__dirname + '/public'));
 
+app.use(bodyParser.json());
+app.use(cors());
 
-app.use("/auth", require("./routes/auth/auth"))
-
-
-app.use('/api/hotel', authMiddleware, require('./routes/api/hotels'));
+app.use('/users', userRouter);
+app.use('/flights', flightRouter);
+app.use('/hotels', hotelRouter);
+app.use('/overlands', overlandRouter);
 
 app.get('/', (req,res) =>{
     res.sendFile(path.join(__dirname, 'public', 'index.html'));
