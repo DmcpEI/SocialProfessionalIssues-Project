@@ -9,6 +9,7 @@
     background-position: center;
     background-attachment: fixed;
     background-repeat: no-repeat;
+    overflow-x:hidden;
 }
 
 .logo{
@@ -121,15 +122,15 @@
     height: 123px;
     position: absolute;
     top: 280px;
-    width: 280%;
+    width: 350%;
     margin-top:-7%;
-    margin-left: 80%;
+    margin-left: 60%;
     display: flex;
 }
 
 .destination-content-white {
-    margin-top: 2%;
-    margin-left: 4%;
+    margin-top: 2.5%;
+    margin-left: 5.6%;
     margin-right: 7%;
     height: 50%;
     width: 70%;
@@ -143,16 +144,15 @@
 }
 
 .destination-form-style{
-    margin-top: 4%;
+    margin-top: 3.5%;
     margin-left: 3%;
-    margin-right: 5%;
 }
 
 .search-style {
     background-color: var(--porsche);
     border-radius: 12px;
-    margin-bottom: 3.9%;
-    margin-top: 2%; 
+    margin-bottom: 2.2%;
+    margin-top: 2.5%; 
     padding: 10px 10px;
 
 }
