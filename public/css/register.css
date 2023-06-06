@@ -40,6 +40,10 @@
     margin-top: 5%;
 }
 
+.logo-color{
+    color: var(--white);
+}
+
 .title-middle {
     margin-left: 42%;
 }

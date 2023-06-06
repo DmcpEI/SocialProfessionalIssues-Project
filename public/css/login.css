@@ -16,6 +16,10 @@
     margin-top: 3.8%;
 }
 
+.logo-color{
+    color: var(--white);
+}
+
 .registerbutton{
     color: var(--white);
     font-family: var(--font-family-poppins);

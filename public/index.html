@@ -8,32 +8,76 @@
     
     <link rel="stylesheet" type="text/css" href="./css/styles.css" />
 </head>
-<body class="backgroundImg">
-    
-    <div class="travel-app valign-text-middle">Travel App</div>
 
-    <div class="registration">
-        <div class="frame-1 frame-2">
-          <div class="place" onclick="window.location.href='login.html'">Log In</div>
+<body class="backgroundImg">
+
+    <div class="gap-logo-button">
+
+        <h1 class="logo poppins-black-white-36px">Travel App</h1>
+
+        <div class="gap-register-login">
+
+            <div class="register-button-frame">
+                <a href="login.html" class="loginbutton">Login</a>
+            </div>
+
+            <div class="register-button-frame">
+                <a href="register.html" class="registerbutton">Register</a>
+            </div>
+
         </div>
-        <div class="frame-1">
-          <div class="place" onclick="window.location.href='register.html'">Register</div>
-        </div>
-    </div> 
+    </div>
+    
 
     <div class="mountains"> 
         <div class="mountains-item montserrat-medium-white-16px">MOUNTAINS</div>
-    <div class="rectangle"></div>
-    <div class= "mountains-item montserrat-medium-white-16px" >MUSEUMS</div>
-    <div class="rectangle"></div> 
-    <div class="beaches montserrat-medium-white-16px">BEACHES</div> 
+        <div class="rectangle"></div>
+        <div class= "mountains-item montserrat-medium-white-16px" >MUSEUMS</div>
+        <div class="rectangle"></div> 
+        <div class="beaches montserrat-medium-white-16px">BEACHES</div> 
 
-    <h1 class="travel-far-travel-w montserrat-bold-white-50px">
-        <span class="montserrat-bold-white-50px">Travel far, <br />travel wide, <br /></span>
-        <span class="span1">and let soul explode the wonders of the world.</span>
-    </h1>
+        <h1 class="travel-far-travel-w montserrat-bold-white-50px">
+            <span class="montserrat-bold-white-50px">Travel far, <br />travel wide, <br /></span>
+            <span class="span1">and let soul explode the wonders of the world.</span>
+        </h1>
+    
 
-    <div class="bg"></div>
+        <div class="destination-bar">
+            <div class="destination-content">
+                
+                <form>
+                    <div class="form-style">
+                        <div class="destination-form-style">
+                            <label class="poppins-bold-parsley-14px">From: </label>
+                            <select class="poppins-bold-parsley-14px" style="border: none;" name="countryFrom">
+                                <option value="France">France</option>
+                            </select>
+                        </div>
+
+                        <div class="destination-form-style">
+                            <label class="poppins-bold-parsley-14px">Destination:</label>
+                            <select class="poppins-bold-parsley-14px" style="border: none;" name="countryDestination">
+                                <option value="USA">USA</option>
+                            </select>
+                        </div>
+
+                        <div class="destination-form-style"> 
+                            <label class="poppins-bold-parsley-14px">Guests:</label>
+                            <select class="poppins-bold-parsley-14px" style="border: none;" name="guests">
+                                <option value="1">1</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="search-position">
+                        <a href="">Search</a>
+                    </div>
+
+                </form>
+            </div>
+        </div>
+
+    </div>
 
 </body>
 </html>
