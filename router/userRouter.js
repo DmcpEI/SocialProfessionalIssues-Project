@@ -35,7 +35,7 @@ router.post('/', async (req, res) => {
 
     const newUser = await createUser(userData);
 
-    res.status(201).send({ status: 'OK', redirect: '/login.html' });
+    res.status(201).send({ status: 'OK', redirect: '/login' });
   } catch (error) {
     res.status(500).send({ status: 'FAILED', error: 'Internal server error' });
   }
@@ -58,7 +58,7 @@ router.post('/login', async (req, res) => {
       return res.status(401).json({ message: 'Invalid email' });
     }
 
-    res.status(201).send({ status: 'OK', redirect: '/index.html' });
+    res.status(201).send({ status: 'OK', redirect: '/index' });
 
   } catch (error) {
     console.error(error);
