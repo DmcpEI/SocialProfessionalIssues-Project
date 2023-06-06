@@ -1,0 +1,134 @@
+@import url("https://fonts.googleapis.com/css?family=Montserrat:500,700,400italic,400|Raleway:700|Poppins:700,900,400|Roboto:900");
+
+.color-background{
+    background-color: #8fe2c4;
+}
+
+.logo{
+    margin-left: 3.9%;
+    margin-top: 3.8%;
+}
+
+.logo-color{
+    color: var(--white);
+}
+
+.price-border {
+    background-color: #ffffff;
+    border-radius: 12px;
+    box-shadow: 1.19px 1.42px 3.15px #00000004, 5.22px 6.26px 6.52px #00000007, 12.8px 15.36px 13px #00000009,
+    24.66px 29.59px 25.48px #0000000b, 41.49px 49.79px 46.85px #0000000e, 64.02px 76.82px 80px #00000012;
+    display: flex;
+    flex-direction:column;
+    gap: 15px;
+    width: 35%;
+    margin-top: 3%;
+    margin-left: 25%;
+    padding: 20px 70px;
+}
+
+.gap-price-description {
+    display:flex;
+    gap: 5%;
+}
+
+.title-middle{
+    margin-left: 25%;
+}
+
+.gap-methods{
+    margin-bottom: 2%;
+}
+
+.go-back-style {
+    margin-top: 2%;
+    align-items: center;
+    background-color: none;
+    border: 2px solid;
+    border-color: #667483;
+    border-radius: 12px;
+    width: 20%;
+}
+
+.go-back-button{
+    width: 100%;
+    height: 34px; 
+    border: none; 
+    background-color:transparent;
+}
+
+.continue-style {
+    margin-top: 2%;
+    align-items: center;
+    background-color: none;
+    border: 2px solid;
+    border-color: #667483;
+    border-radius: 12px;
+    width: 20%;
+}
+
+.continue-button{
+    width: 100%;
+    height: 55px; 
+    border: none; 
+    border-radius: 10px;
+    background-color: #FFDF54;
+}
+
+:root{
+    --black: rgba(0,0,0,1);
+    --parsley: rgba(17,93,38,1);
+    --frostee: rgba(230, 249, 228, 1);
+    --porsche: rgba(231, 172, 114, 1);
+    --white: rgba(255, 255, 255, 1);
+
+    --font-size-m: 14px;
+    --font-size-1: 20px;
+    --font-size-lm:25px;
+    --font-size-x1: 36px;
+
+    --font-family-poppins: "Poppins";
+}
+
+.poppins-bold-white-14px {
+
+    color: var(--white);
+    font-family: var(--font-family-poppins);
+    font-size: var(--font-size-m);
+    font-weight: 700;
+    font-style: normal;
+}
+
+.poppins-bold-black-14px {
+
+    color: var(--black);
+    font-family: var(--font-family-poppins);
+    font-size: var(--font-size-m);
+    font-weight: 700;
+    font-style: normal;
+}
+
+.poppins-bold-parsley-14px { 
+    color: var(--parsley);
+    font-family: var(--font-family-poppins);
+    font-size: var(--font-size-m);
+    font-weight: 700;
+    font-style: normal;
+}
+
+.poppins-bold-black-25px {
+
+    color: var(--black);
+    font-family: var(--font-family-poppins);
+    font-size: var(--font-size-lm);
+    font-weight: 700;
+    font-style: normal;
+}
+
+.poppins-black-white-36px {
+    color: var(--white);
+    font-family: var(--font-family-poppins);
+    font-size: var(--font-size-x1);
+    font-weight: 900;
+    font-style: normal;
+}
