@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TravelApp | Flights</title>
+
+  <link href="/css/styles.css" rel="stylesheet" type="text/css">
+</head>
+<body style="background-color: aqua;">
+
+  <div class="travel-app valign-text-middle">Travel App</div>
+  
+  <h1 class="title2 valign-text-middle">Choose your flight!</h1>
+
+  <div class="trips-container">
+    <% flights.forEach((flight) => { %>
+      <div class="trip">
+        <h2><%= flight.destination %></h2>
+        <p><%= flight.price %></p>
+      </div>
+    <% }); %>
+  </div>
+
+</body>
+</html>
