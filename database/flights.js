@@ -9,7 +9,12 @@ const getFlightById = async (id) => {
   return await db.flights.findOne({ _id: new ObjectId(id) });
 };
 
+const getFlightsByOriginAndDestination = async (origin, destination) => {
+  return await db.flights.find({ origin: origin, destination: destination }).toArray();
+};
+
 module.exports = {
     getAllFlights,
     getFlightById,
+    getFlightsByOriginAndDestination,
   };

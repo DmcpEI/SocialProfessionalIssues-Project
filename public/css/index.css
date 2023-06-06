@@ -1,0 +1,227 @@
+@import url("https://fonts.googleapis.com/css?family=Montserrat:500,700,400italic,400|Raleway:700|Poppins:700,900,400|Roboto:900");
+
+
+.backgroundImg {
+    width: 100%;
+    min-height: 100%;
+    background-image:url(https://wallpaperaccess.com/full/424833.jpg);
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+}
+
+.logo{
+    margin-left: 3.9%;
+    margin-top: 3.8%;
+}
+
+.gap-logo-button{
+    align-items: flex-start;
+    align-self: flex-start;
+    display: flex;
+    gap: 43%;
+}
+
+.gap-register-login{
+    align-items: flex-start;
+    align-self: flex-start;
+    display: flex;
+    gap: 5%;
+}
+
+.loginbutton{
+    color: var(--black);
+    font-family: var(--font-family-poppins);
+    font-size: var(--font-size-xxs);
+    font-weight: 700;
+    margin-top: 5%;
+}
+
+.registerbutton{
+    color: var(--white);
+    font-family: var(--font-family-poppins);
+    font-size: var(--font-size-xxs);
+    font-weight: 700;
+    margin-top: 5%;
+}
+
+.register-button-frame{
+    margin-top: 10%;
+    margin-right: 3.9%;
+    align-items: center;
+    border: 2px solid;
+    border-color: var(--white);
+    border-radius: 12px;
+    display: flex;
+    
+    height: 53px;
+    justify-content: center;
+    padding: 13px 44px;
+    position: relative;
+    width: 105px;
+}
+
+.mountains { 
+    align-items: center; 
+    display: flex; 
+    gap: 10px; 
+    height: 18px; 
+    left: 81px;
+    position: absolute;
+    top: 200px; width: 250px;
+}  
+
+.mountains-item {
+    letter-spacing: 0;
+    line-height: normal;
+    margin-top: -2px;
+    position: relative;
+    width: fit-content;
+}
+
+.rectangle {
+    background-color: var(--white);
+    height: 10px;
+    min-width: 2px;
+    position: relative;
+}
+
+.beaches {
+    letter-spacing: 0;
+    line-height: normal;
+    margin-right: -64px;
+    margin-top: -2px;
+    position: relative; 
+    width: fit-content;
+}
+
+.travel-far-travel-w { 
+    left: 8px; 
+    letter-spacing: 0; 
+    line-height: normal;
+    position: absolute;
+    top: 50px;
+    width: 1167px;
+}
+
+.span1 {
+    color: var(--white);
+    font-family: var(--font-family-montserrat);
+    font-size: var (--font-size-xs);
+    font-style: italic;
+    font-weight: 400;
+}
+
+.destination-bar-transparent {
+    background-color: #ffffff66;
+    border-radius: 12px;
+    box-shadow: 1.19px 1.42px 3.15px #00000004, 5.22px 6.26px 6.52px #00000007, 12.8px 15.36px 13px #00000009,
+      24.66px 29.59px 25.48px #0000000b, 41.49px 49.79px 46.85px #0000000e, 64.02px 76.82px 80px #00000012;
+    height: 123px;
+    position: absolute;
+    top: 280px;
+    width: 280%;
+    margin-top:-7%;
+    margin-left: 80%;
+    display: flex;
+}
+
+.destination-content-white {
+    margin-top: 2%;
+    margin-left: 4%;
+    margin-right: 7%;
+    height: 50%;
+    width: 70%;
+    border-radius: 12px;
+    background-color: var(--white);
+    padding: 10px 10px;
+}
+
+.form-style{
+    display: flex;
+}
+
+.destination-form-style{
+    margin-top: 4%;
+    margin-left: 3%;
+    margin-right: 5%;
+}
+
+.search-style {
+    background-color: var(--porsche);
+    border-radius: 12px;
+    margin-bottom: 3.9%;
+    margin-top: 2%; 
+    padding: 10px 10px;
+
+}
+
+:root {
+    --black:rgba(0, 0, 0, 1);
+    --chambray:rgba(47, 78, 132, 1);
+    --river-bed:rgba(62, 73, 88, 1);
+    --cinderella:rgba(248, 226, 214, 1);
+    --white:rgba(255, 255, 255, 1);
+    --parsley: rgba(17,93,38,1);
+    --frostee: rgba(230, 249, 228, 1);
+    --porsche: rgba(231, 172, 114, 1);
+
+
+    --font-size-xxxxxs: 12px;
+    --font-size-xxxxs: 14px;
+    --font-size-xxxs: 16px;
+    --font-size-xxs: 20px;
+    --font-size-xs: 36px;
+    --font-size-s: 40px;
+    --font-size-m: 48px;
+    --font-size-l: 60px;
+    --font-size-xl: 70px;
+
+    --font-family-montserrat: "Montserrat"; 
+    --font-family-poppins: "Poppins"; 
+    --font-family-raleway: "Raleway";
+    --font-family-roboto: "Roboto";
+}
+
+.montserrat-bold-white-50px { 
+    color: var(--white);
+    font-family: var(--font-family-montserrat); 
+    font-size: var(--font-size-m);
+    font-weight: 700; 
+    font-style: normal;
+}
+
+
+.montserrat-medium-white-16px { 
+    color: var(--white);
+    font-family: var(--font-family-montserrat); 
+    font-size: var(--font-size-xxxs);
+    font-weight: 500;
+    font-style: normal;
+}
+
+.poppins-bold-white-14px {
+
+    color: var(--white);
+    font-family: var(--font-family-poppins);
+    font-size: var(--font-size-xxxxs);
+    font-weight: 700;
+    font-style: normal;
+}
+
+.poppins-bold-parsley-14px { 
+    color: var(--parsley);
+    font-family: var(--font-family-poppins);
+    font-size: var(--font-size-xxxxs);
+    font-weight: 700;
+    font-style: normal;
+}
+
+.poppins-black-white-36px {
+    color: var(--white);
+    font-family: var(--font-family-poppins);
+    font-size: var(--font-size-xs);
+    font-weight: 900;
+    font-style: normal;
+}
