@@ -49,6 +49,10 @@ app.get('/register', (req, res) => {
     res.render('register');
 });
 
+app.get('/route', (req, res) => {
+  res.render('route');
+});
+
 // 404 Page
 app.use((req, res) => {
     res.status(404).render('404');

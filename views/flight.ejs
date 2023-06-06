@@ -6,21 +6,52 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>TravelApp | Flights</title>
 
-  <link href="/css/styles.css" rel="stylesheet" type="text/css">
+  <link href="/css/flight.css" rel="stylesheet" type="text/css">
 </head>
-<body style="background-color: aqua;">
 
-  <div class="travel-app valign-text-middle">Travel App</div>
-  
-  <h1 class="title2 valign-text-middle">Choose your flight!</h1>
+<body class="color-background">
 
-  <div class="trips-container">
-    <% flights.forEach((flight) => { %>
-      <div class="trip">
-        <h2><%= flight.destination %></h2>
-        <p><%= flight.price %></p>
+  <div class="logo poppins-black-white-36px">
+    <a href="/" class="logo-color">Travel App</a>
+  </div>
+
+  <div class="title-left-space">
+    <h1 class="poppins-black-white-25px">Choose your flight!</h1>
+  </div>
+
+  <div class="selection-map-division">
+
+    <div class="selection-border">
+      
+      <div class="input-style">
+        <input type="radio" id="option1" name="options">
+        <label for="option1" class="poppins-bold-parsley-14px">Option 1</label>
       </div>
-    <% }); %>
+      <div class="input-style">
+        <input type="radio" id="option2" name="options">
+        <label for="option2" class="poppins-bold-parsley-14px">Option 2</label>
+      </div>
+      <div class="input-style">
+        <input type="radio" id="option3" name="options">
+        <label for="option3" class="poppins-bold-parsley-14px">Option 3</label>
+      </div>
+      <div class="input-style">
+        <input type="radio" id="option4" name="options">
+        <label for="option4" class="poppins-bold-parsley-14px">Option 4</label>
+      </div>
+      
+    </div>
+
+    <div>
+      <div class="map-frame">
+        <button style="height: 300px; width: 650px;"></button>
+      </div>
+
+      <div class="next-step-style">
+        <a href="" class="poppins-bold-parsley-14px">Continue the selection</a>
+      </div>
+    </div>
+
   </div>
 
 </body>
