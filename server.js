@@ -39,6 +39,10 @@ app.get('/register', (req, res) => {
     res.render('register');
 });
 
+app.get('/user', (req, res) => {
+  res.render('user');
+});
+
 // 404 Page
 app.use((req, res) => {
     res.status(404).render('404');

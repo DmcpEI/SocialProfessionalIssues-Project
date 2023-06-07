@@ -1,0 +1,155 @@
+@import url("https://fonts.googleapis.com/css?family=Montserrat:500,700,400italic,400|Raleway:700|Poppins:700,900,400|Roboto:900");
+
+.color-background{
+    background-color: #8fe2c4;
+}
+
+.logo{
+    margin-left: 3.9%;
+    margin-top: 3.8%;
+}
+
+.logo-color{
+    color: var(--white);
+}
+
+/* .registerbutton{
+    color: var(--white);
+    font-family: var(--font-family-poppins);
+    font-size: var(--font-size-1);
+    font-weight: 700;
+    margin-top: 5%;
+} */
+
+.title-left-space{
+    margin-top: 5%;
+    margin-left: 10%;
+}
+
+.distance-option-map{
+    display: flex;
+}
+
+.selection-border {
+    background-color: #ffffff66;
+    border-radius: 12px;
+    box-shadow: 1.19px 1.42px 3.15px #00000004, 5.22px 6.26px 6.52px #00000007, 12.8px 15.36px 13px #00000009,
+    24.66px 29.59px 25.48px #0000000b, 41.49px 49.79px 46.85px #0000000e, 64.02px 76.82px 80px #00000012;
+    display: flex;
+    flex-direction:column;
+    gap: 15px;
+    width: 20%;
+    margin-left: 4%;
+    padding: 24.5px 21.1px;
+}
+
+.selection-map-division{
+    align-items: flex-start;
+    align-self: flex-start;
+    display: flex;
+    gap: 7%;
+}
+
+.map-frame{
+    align-items: center;
+    border: 2px solid;
+    border-color: var(--white);
+    border-radius: 12px;
+    display: flex;
+    margin-right: 4%;
+    height: 100%;
+    justify-content: center;
+    padding: 13px 44px;
+    position: relative;
+    width: 95%;
+}
+
+.input-style {
+    align-items: flex-start;
+    background-color: var(--frostee);
+    border-radius: 12px;
+    display: flex;
+    justify-content: center;
+}
+
+input[type="radio"] {
+  display: none;
+}
+
+label {
+  width: 100%;
+  height: 100%;
+  border-radius: 12px;
+  padding: 24.5px 21.1px;
+}
+
+input[type="radio"]:checked + label {
+  /* Style the box when the radio button is checked */
+  background-color: var(--verdinho);
+  color: var(--white);
+}
+
+.next-step-style {
+    margin-top: 2%;
+    margin-left: 78%;
+}
+
+.submit-style {
+    background-color: var(--porsche);
+    border-radius: 12px;
+    margin-top: 10%; 
+    padding: 24.5px 21.1px;
+}
+
+.map-image{
+    background-image: url(https://wallpaperaccess.com/full/424833.jpg);
+}
+
+:root{
+    --black: rgba(0,0,0,1);
+    --parsley: rgba(17,93,38,1);
+    --verdinho:rgb(63, 147, 88);
+    --frostee: rgba(230, 249, 228, 1);
+    --porsche: rgba(231, 172, 114, 1);
+    --white: rgba(255, 255, 255, 1);
+
+    --font-size-m: 14px;
+    --font-size-1: 20px;
+    --font-size-lx: 25px;
+    --font-size-x1: 36px;
+
+    --font-family-poppins: "Poppins";
+}
+
+.poppins-bold-white-14px {
+
+    color: var(--white);
+    font-family: var(--font-family-poppins);
+    font-size: var(--font-size-m);
+    font-weight: 700;
+    font-style: normal;
+}
+
+.poppins-bold-parsley-14px { 
+    color: var(--parsley);
+    font-family: var(--font-family-poppins);
+    font-size: var(--font-size-m);
+    font-weight: 700;
+    font-style: normal;
+}
+
+.poppins-black-white-25px {
+    color: var(--white);
+    font-family: var(--font-family-poppins);
+    font-size: var(--font-size-lx);
+    font-weight: 800;
+    font-style: normal;
+}
+
+.poppins-black-white-36px {
+    color: var(--white);
+    font-family: var(--font-family-poppins);
+    font-size: var(--font-size-x1);
+    font-weight: 900;
+    font-style: normal;
+}
