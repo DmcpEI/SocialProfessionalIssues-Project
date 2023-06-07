@@ -68,4 +68,25 @@ router.get('/flight', (req, res) => {
   res.render('flight', { flights: JSON.parse(flights), guests: JSON.parse(guests), user: user ? JSON.parse(user) : null });
 });
 
+// POST route for payment page
+router.post('/paymentPage', async (req, res) => {
+  const { flight, guests, user } = req.body;
+
+  try {
+    if (!flight) {
+      res.status(404).send({ status: 'FAILED', error: 'No flight found' });
+      return;
+    }
+
+    res.send({ status: 'OK', flight, guests, user, redirect: '/flights/payment' });
+  } catch (e) {
+    res.status(500).send({ status: 'FAILED', error: e.message });
+  }
+});
+
+router.get('/payment', (req, res) => {
+  const { flight, guests, user } = req.query;
+  res.render('payment', { flight: JSON.parse(flight), guests: JSON.parse(guests), user: user ? JSON.parse(user) : null });
+});
+
 module.exports = router;

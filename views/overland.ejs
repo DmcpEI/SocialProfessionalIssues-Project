@@ -19,31 +19,37 @@
     <h1 class="poppins-black-white-25px">Choose your overland itinerary!</h1>
   </div>
 
-  <div class="selection-map-division">
+  <form id="overlandForm">
 
-    <div class="selection-border">
-      <% overlands.forEach((overland, index) => { %>
-        <div class="input-style">
-          <input type="radio" id="option<%= index + 1 %>" name="option<%= index + 1 %>">
-          <label for="option<%= index + 1 %>" class="poppins-bold-parsley-14px">
-            <h2><%= `Overland Trip ${index + 1}` %></h2>
-            <p>Price: <%= overland.price %></p>
-          </label>
+    <div class="selection-map-division">
+
+      <div class="selection-border">
+        <% overlands.forEach((overland, index) => { %>
+          <div class="input-style">
+            <input type="radio" id="option<%= index + 1 %>" name="option<%= index + 1 %>" value="<%= overland %>">
+            <label for="option<%= index + 1 %>" class="poppins-bold-parsley-14px">
+              <h2><%= `Overland Trip ${index + 1}` %></h2>
+              <p>Price: <%= overland.price %></p>
+            </label>
+          </div>
+        <% }); %>
+      </div>
+
+      <input type="hidden" value="<%= guests %>" name="guests">
+      <input type="hidden" value="<%= user %>" name="user">
+
+      <div>
+        <div class="map-frame">
+          <button style="height: 300px; width: 650px;"></button>
         </div>
-      <% }); %>
-    </div>
 
-    <div>
-      <div class="map-frame">
-        <button style="height: 300px; width: 650px;"></button>
+        <div class="next-step-style">
+          <a class="poppins-bold-parsley-14px" type="submit">Continue the selection</a>
+        </div>
       </div>
 
-      <div class="next-step-style">
-        <a href="" class="poppins-bold-parsley-14px">Continue the selection</a>
-      </div>
     </div>
-
-  </div>
+  </form>
 
 </body>
 
