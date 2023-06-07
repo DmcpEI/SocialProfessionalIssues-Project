@@ -49,8 +49,8 @@ app.get('/register', (req, res) => {
     res.render('register');
 });
 
-app.get('/payment', (req, res) => {
-  res.render('payment');
+app.get('/user', (req, res) => {
+  res.render('user');
 });
 
 // 404 Page
