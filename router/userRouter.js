@@ -1,27 +1,11 @@
 const express = require('express');
 const router = express.Router();
-const { getAllUsers, getUserById, getUserByName, createUser, /*updateUser*/ } = require('../database/users');
+const { getAllUsers, getUserByName, createUser, /*updateUser*/ } = require('../database/users');
 
 // Get all users
 router.get('/', async (req, res) => {
   const users = await getAllUsers();
   res.send({ status: 'OK', data: users });
-});
-
-// Get user with a certain id
-router.get('/:userId', async (req, res) => {
-  try {
-    const user = await getUserById(req.params.userId);
-
-    if (!user) {
-      res.status(404).send({ status: 'FAILED', error: 'User not found' });
-      return;
-    }
-
-    res.send({ status: 'OK', data: user });
-  } catch (e) {
-    res.status(401).send({ status: 'FAILED', error: e.message });
-  }
 });
 
 // Create a user
@@ -58,12 +42,17 @@ router.post('/login', async (req, res) => {
       return res.status(401).json({ message: 'Invalid email' });
     }
 
-    res.status(201).send({ status: 'OK', redirect: '/index' });
+    res.send({ status: 'OK', user, redirect: '/users/login' });
 
   } catch (error) {
     console.error(error);
     res.status(500).json({ message: 'Internal server error' });
   }
+});
+
+router.get('/login', (req, res) => {
+  const { user } = req.query;
+  res.render('index', { user: user ? JSON.parse(user) : null });
 });
 
 module.exports = router;

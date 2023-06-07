@@ -4,9 +4,9 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>TravelApp | Flights</title>
+  <title>TravelApp | Route</title>
 
-  <link href="/css/flight.css" rel="stylesheet" type="text/css">
+  <link href="/css/overland.css" rel="stylesheet" type="text/css">
 </head>
 
 <body class="color-background">
@@ -16,18 +16,18 @@
   </div>
 
   <div class="title-left-space">
-    <h1 class="poppins-black-white-25px">Choose your flight!</h1>
+    <h1 class="poppins-black-white-25px">Choose your overland itinerary!</h1>
   </div>
 
   <div class="selection-map-division">
 
     <div class="selection-border">
-      <% flights.forEach((flight, index) => { %>
+      <% overlands.forEach((overland, index) => { %>
         <div class="input-style">
           <input type="radio" id="option<%= index + 1 %>" name="option<%= index + 1 %>">
           <label for="option<%= index + 1 %>" class="poppins-bold-parsley-14px">
-            <h2><%= `Flight ${index + 1}` %></h2>
-            <p>Price: <%= flight.price %></p>
+            <h2><%= `Overland Trip ${index + 1}` %></h2>
+            <p>Price: <%= overland.price %></p>
           </label>
         </div>
       <% }); %>
@@ -46,4 +46,5 @@
   </div>
 
 </body>
+
 </html>

@@ -61,17 +61,18 @@
           if (response.ok) {
             const data = await response.json();
             if (data.redirect) {
-              window.location.href = data.redirect;
+            const { user } = data;
+            window.location.href = `${data.redirect}?user=${encodeURIComponent(JSON.stringify(user))}`;
             }
           } else {
-            const errorData = await response.json();
-            console.error('Login failed:', errorData.message);
-            // Handle error display on the frontend
+              const errorData = await response.json();
+              console.error('Log In Failed:', errorData.error);
+              // Handle error display on the frontend
           }
-        } catch (error) {
-          console.error('Login failed:', error);
+          } catch (error) {
+          console.error('Log In Failed:', error);
           // Handle error display on the frontend
-        }
+          }
       });
     </script>
   
