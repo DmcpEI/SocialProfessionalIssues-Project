@@ -7,6 +7,76 @@
     <title>TravelApp</title>
     
     <link href="/css/index.css" rel="stylesheet" type="text/css">
+
+    <script>
+        function updateOptions(selectedType) {
+            var originSelect = document.getElementById('countryOrigin');
+            var destinationSelect = document.getElementById('countryDestination');
+
+            // Clear previous options
+            originSelect.innerHTML = '';
+            destinationSelect.innerHTML = '';
+
+            if (selectedType === 'overlands') {
+                fetch('/overlands/origins')
+                    .then(response => response.json())
+                    .then(data => {
+                        data.forEach(origin => {
+                            var option = document.createElement('option');
+                            option.value = origin;
+                            option.text = origin;
+                            originSelect.appendChild(option);
+                        });
+                    })
+                    .catch(error => {
+                        console.error(error);
+                    });
+
+                fetch('/overlands/destinations')
+                    .then(response => response.json())
+                    .then(data => {
+                        data.forEach(destination => {
+                            var option = document.createElement('option');
+                            option.value = destination;
+                            option.text = destination;
+                            destinationSelect.appendChild(option);
+                        });
+                    })
+                    .catch(error => {
+                        console.error(error);
+                    });
+            } else if (selectedType === 'flights') {
+                fetch('/flights/origins')
+                    .then(response => response.json())
+                    .then(data => {
+                        data.forEach(origin => {
+                            var option = document.createElement('option');
+                            option.value = origin;
+                            option.text = origin;
+                            originSelect.appendChild(option);
+                        });
+                    })
+                    .catch(error => {
+                        console.error(error);
+                    });
+
+                fetch('/flights/destinations')
+                    .then(response => response.json())
+                    .then(data => {
+                        data.forEach(destination => {
+                            var option = document.createElement('option');
+                            option.value = destination;
+                            option.text = destination;
+                            destinationSelect.appendChild(option);
+                        });
+                    })
+                    .catch(error => {
+                        console.error(error);
+                    });
+            }
+        }
+
+    </script>
 </head>
 <body class="backgroundImg">
 
@@ -15,15 +85,21 @@
         <h1 class="logo poppins-black-white-36px">Travel App</h1>
 
         <div class="gap-register-login">
-
-            <div class="register-button-frame">
-                <a href="/login" class="loginbutton">Login</a>
-            </div>
-
-            <div class="register-button-frame">
-                <a href="/register" class="registerbutton">Register</a>
-            </div>
-
+            <% if (typeof user === 'undefined' || user === null) { %>
+                <div class="register-button-frame">
+                    <a href="/login" class="loginbutton">Login</a>
+                </div>
+                <div class="register-button-frame">
+                    <a href="/register" class="registerbutton">Register</a>
+                </div>
+            <% } else { %>
+                <div class="register-button-frame">
+                    <a href="/" class="loginbutton">Logout</a>
+                </div>
+                <div class="register-button-frame">
+                    <a href="/" class="registerbutton"><%= user.name %></a>
+                </div>
+            <% } %>
         </div>
     </div>
     
@@ -46,21 +122,27 @@
                 
                 <form id="seachForm">
                     <div class="form-style">
+
                         <div class="destination-form-style">
-                            <label class="poppins-bold-parsley-14px">From: </label>
-                            <select class="poppins-bold-parsley-14px" style="border: none;" name="countryOrigin">
-                                <% origins.forEach(origin => { %>
-                                    <option value="<%= origin %>"><%= origin %></option>
-                                <% }); %>
+                            <label class="poppins-bold-parsley-14px">Type:</label>
+                            <select class="poppins-bold-parsley-14px" style="border: none;" name="type" id="type" onchange="updateOptions(this.value)">
+                                <option value="">Select a type</option>
+                                <option value="overlands">Overland</option>
+                                <option value="flights">Flight</option>
                             </select>
                         </div>
 
                         <div class="destination-form-style">
+                            <label class="poppins-bold-parsley-14px">From: </label>
+                            <select class="poppins-bold-parsley-14px" style="border: none;" name="countryOrigin" id="countryOrigin">
+                                <option value="">Select an origin</option>
+                            </select>
+                        </div>
+                        
+                        <div class="destination-form-style">
                             <label class="poppins-bold-parsley-14px">Destination:</label>
-                            <select class="poppins-bold-parsley-14px" style="border: none;" name="countryDestination">
-                                <% destinations.forEach(destination => { %>
-                                    <option value="<%= destination %>"><%= destination %></option>
-                                <% }); %>
+                            <select class="poppins-bold-parsley-14px" style="border: none;" name="countryDestination" id="countryDestination">
+                                <option value="">Select a destination</option>
                             </select>
                         </div>
 
@@ -74,24 +156,99 @@
                             </select>
                         </div>
 
-                        <div class="destination-form-style">
-                            <label class="poppins-bold-parsley-14px">Type:</label>
-                            <select class="poppins-bold-parsley-14px" style="border: none;" name="type">
-                                <option value>Overland</option>
-                            </select>
-                        </div>
+                        <% if (typeof user === 'undefined' || user === null) { %>
+                            <!-- User is not defined or null -->
+                        <% } else { %>
+                            <input type="hidden" value="<%= user %>" name="user">
+                        <% } %>
+
                     </div>
                 </div>
-
+                
+                <% if (typeof user === 'undefined' || user === null) { %>
+                </form>
+                    <div class="search-style">
+                        <button class="poppins-bold-white-14px" style="width: 100%; border: none; background-color: var(--porsche); margin-top: 32%;" onclick="location.href = 'http://localhost:3000/login';">Search</button>
+                    </div>
+                <% } else { %>
                     <div class="search-style">
                         <button class="poppins-bold-white-14px" style="width: 100%; border: none; background-color: var(--porsche); margin-top: 32%;" type="submit">Search</button>
                     </div>
-
                 </form>
+                <% } %>
             </div>
         </div>
 
     </div>
+
+    <script>
+        document.getElementById('seachForm').addEventListener('submit', async (event) => {
+            event.preventDefault();
+        
+            const form = event.target;
+            const formData = new FormData(form);
+            const requestData = Object.fromEntries(formData);
+
+            var selectedType = document.getElementById('type').value;
+    
+            if(selectedType=='flights'){
+
+                try {
+                    const response = await fetch('/flights/selectPage', {
+                        method: 'POST',
+                        headers: {
+                        'Content-Type': 'application/json'
+                        },
+                        body: JSON.stringify(requestData)
+                    });
+
+                    if (response.ok) {
+                        const data = await response.json();
+                        if (data.redirect) {
+                        const { flights, guests, user } = data;
+                        window.location.href = `${data.redirect}?flights=${encodeURIComponent(JSON.stringify(flights))}&guests=${encodeURIComponent(JSON.stringify(guests))}&user=${encodeURIComponent(JSON.stringify(user))}`;
+                        }
+                    } else {
+                        const errorData = await response.json();
+                        console.error('Search Failed:', errorData.error);
+                        // Handle error display on the frontend
+                    }
+                } catch (error) {
+                console.error('Search Failed:', error);
+                // Handle error display on the frontend
+                }
+
+            }
+            else if (selectedType=='overlands'){
+
+                try {
+                    const response = await fetch('/overlands/selectPage', {
+                        method: 'POST',
+                        headers: {
+                        'Content-Type': 'application/json'
+                        },
+                        body: JSON.stringify(requestData)
+                    });
+
+                    if (response.ok) {
+                        const data = await response.json();
+                        if (data.redirect) {
+                        const { overlands, guests, user } = data;
+                        window.location.href = `${data.redirect}?overlands=${encodeURIComponent(JSON.stringify(overlands))}&guests=${encodeURIComponent(JSON.stringify(guests))}&user=${encodeURIComponent(JSON.stringify(user))}`;
+                        }
+                    } else {
+                        const errorData = await response.json();
+                        console.error('Search Failed:', errorData.error);
+                        // Handle error display on the frontend
+                    }
+                } catch (error) {
+                console.error('Search Failed:', error);
+                // Handle error display on the frontend
+                }
+
+            }
+        });
+      </script>
 
 </body>
 </html>

@@ -1,27 +1,11 @@
 const express = require('express');
 const router = express.Router();
-const { getAllFlights, getFlightById, getFlightsByOriginAndDestination, } = require('../database/flights');
+const { getAllFlights, getFlightsByOriginAndDestination, getFlightsOrigins, getFlightsDestinations, } = require('../database/flights');
 
 // Get all flights
 router.get('/', async (req, res) => {
   const flights = await getAllFlights();
   res.send({ status: 'OK', data: flights });
-});
-
-// Get flight with a certain id
-router.get('/:flightId', async (req, res) => {
-  try {
-    const flight = await getFlightById(req.params.flightId);
-
-    if (!flight) {
-      res.status(404).send({ status: 'FAILED', error: 'Flight not found' });
-      return;
-    }
-
-    res.send({ status: 'OK', data: flight });
-  } catch (e) {
-    res.status(401).send({ status: 'FAILED', error: e.message });
-  }
 });
 
 // Get all flights from a certain origin to a certain destination
@@ -41,6 +25,47 @@ router.get('/:origin/:destination', async (req, res) => {
   } catch (e) {
     res.status(500).send({ status: 'FAILED', error: e.message });
   }
+});
+
+router.get('/origins', async (req, res) => {
+  try {
+      const origins = await getFlightsOrigins();
+      res.json(origins);
+    } catch (error) {
+      res.status(500).send('Internal Server Error');
+  }
+});
+
+router.get('/destinations', async (req, res) => {
+  try {
+      const destinations = await getFlightsDestinations();
+      res.json(destinations);
+  } catch (error) {
+      res.status(500).send('Internal Server Error');
+  }
+});
+
+// POST route for selection page
+router.post('/selectPage', async (req, res) => {
+  const { countryOrigin, countryDestination, guests, user } = req.body;
+
+  try {
+    const flights = await getFlightsByOriginAndDestination(countryOrigin, countryDestination);
+
+    if (flights.length === 0) {
+      res.status(404).send({ status: 'FAILED', error: 'No flights found' });
+      return;
+    }
+
+    res.send({ status: 'OK', flights, guests, user, redirect: '/flights/flight' });
+  } catch (e) {
+    res.status(500).send({ status: 'FAILED', error: e.message });
+  }
+});
+
+router.get('/flight', (req, res) => {
+  const { flights, guests, user } = req.query;
+  res.render('flight', { flights: JSON.parse(flights), guests: JSON.parse(guests), user: user ? JSON.parse(user) : null });
 });
 
 module.exports = router;

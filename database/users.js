@@ -5,10 +5,6 @@ const getAllUsers = async () => {
   return await db.users.find().toArray();
 };
 
-const getUserById = async (id) => {
-  return await db.users.findOne({ _id: new ObjectId(id) });
-};
-
 const getUserByName = async (name) => {
   return await db.users.findOne({ name: name });
 };
@@ -20,7 +16,6 @@ const createUser = async (user) => {
 
 module.exports = {
   getAllUsers,
-  getUserById,
   getUserByName,
   createUser,
   /*

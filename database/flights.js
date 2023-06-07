@@ -5,16 +5,39 @@ const getAllFlights = async () => {
   return await db.flights.find().toArray();
 };
 
-const getFlightById = async (id) => {
-  return await db.flights.findOne({ _id: new ObjectId(id) });
-};
-
 const getFlightsByOriginAndDestination = async (origin, destination) => {
   return await db.flights.find({ origin: origin, destination: destination }).toArray();
 };
 
+const getFlightsOrigins = async () => {
+  const flights = await db.flights.find().toArray();
+  const origins = new Set();
+
+  flights.forEach(flight => {
+      if (flight.origin) {
+        origins.add(flight.origin);
+      }
+  });
+
+  return Array.from(origins);
+};
+
+const getFlightsDestinations = async () => {
+  const flights = await db.flights.find().toArray();
+  const destinations = new Set();
+
+  flights.forEach(flight => {
+      if (flight.destination) {
+          destinations.add(flight.destination);
+      }
+  });
+
+  return Array.from(destinations);
+};
+
 module.exports = {
     getAllFlights,
-    getFlightById,
     getFlightsByOriginAndDestination,
+    getFlightsOrigins,
+    getFlightsDestinations,
   };

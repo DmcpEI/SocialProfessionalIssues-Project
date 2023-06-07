@@ -8,8 +8,6 @@ const flightRouter = require('./router/flightRouter');
 const hotelRouter = require('./router/hotelRouter');
 const overlandRouter = require('./router/overlandRouter');
 
-const { getAllOrigins, getAllDestinations, } = require('./database/trips');
-
 const app = express();
 
 const PORT = process.env.PORT || 3000;
@@ -30,16 +28,8 @@ app.use('/hotels', hotelRouter);
 app.use('/overlands', overlandRouter);
 
 app.get('/', async (req, res) => {
-    try {
-      const origins = await getAllOrigins(); // Fetch origin data from the database
-      const destinations = await getAllDestinations(); // Fetch destinations data from the database
-  
-      res.render('index', { origins, destinations }); // Pass the origins and destinations data to the EJS template
-    } catch (error) {
-      // Handle errors
-      res.status(500).send('Internal Server Error');
-    }
-  });
+    res.render('index');
+});
 
 app.get('/login', (req, res) => {
     res.render('login');

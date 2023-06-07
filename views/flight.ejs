@@ -22,24 +22,15 @@
   <div class="selection-map-division">
 
     <div class="selection-border">
-      
-      <div class="input-style">
-        <input type="radio" id="option1" name="options">
-        <label for="option1" class="poppins-bold-parsley-14px">Option 1</label>
-      </div>
-      <div class="input-style">
-        <input type="radio" id="option2" name="options">
-        <label for="option2" class="poppins-bold-parsley-14px">Option 2</label>
-      </div>
-      <div class="input-style">
-        <input type="radio" id="option3" name="options">
-        <label for="option3" class="poppins-bold-parsley-14px">Option 3</label>
-      </div>
-      <div class="input-style">
-        <input type="radio" id="option4" name="options">
-        <label for="option4" class="poppins-bold-parsley-14px">Option 4</label>
-      </div>
-      
+      <% flights.forEach((flight, index) => { %>
+        <div class="input-style">
+          <input type="radio" id="option<%= index + 1 %>" name="option<%= index + 1 %>">
+          <label for="option<%= index + 1 %>" class="poppins-bold-parsley-14px">
+            <h2><%= `Flight ${index + 1}` %></h2>
+            <p>Price: <%= flight.price %></p>
+          </label>
+        </div>
+      <% }); %>
     </div>
 
     <div>
