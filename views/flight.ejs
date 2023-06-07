@@ -19,7 +19,7 @@
     <h1 class="poppins-black-white-25px">Choose your flight!</h1>
   </div>
 
-  <div class="selection-map-division">
+  <form id="flightForm">
 
     <div class="selection-border">
       <% flights.forEach((flight, index) => { %>
@@ -30,20 +30,51 @@
             <p>Price: <%= flight.price %></p>
           </label>
         </div>
-      <% }); %>
-    </div>
 
-    <div>
-      <div class="map-frame">
-        <button style="height: 300px; width: 650px;"></button>
+        <div class="next-step-style">
+          <button class="poppins-bold-parsley-14px" type="submit">Continue the selection</button>
+        </div>
       </div>
 
-      <div class="next-step-style">
-        <a href="" class="poppins-bold-parsley-14px">Continue the selection</a>
-      </div>
     </div>
 
-  </div>
+  </form>
 
-</body>
+  <script>
+    document.getElementById('flightForm').addEventListener('submit', async (event) => {
+      event.preventDefault();
+
+      const form = event.target;
+      const formData = new FormData(form);
+      const requestData = Object.fromEntries(formData);
+
+      try {
+        const response = await fetch('/flights/paymentPage', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify(requestData)
+        });
+
+        if (response.ok) {
+          const data = await response.json();
+          if (data.redirect) {
+          const { flight, guests, user } = data;
+          window.location.href = `${data.redirect}?flight=${encodeURIComponent(JSON.stringify(flight))}&guests=${encodeURIComponent(JSON.stringify(guests))}&user=${encodeURIComponent(JSON.stringify(user))}`;
+          }
+        } else {
+            const errorData = await response.json();
+            console.error('Flight Selection Failed:', errorData.error);
+            // Handle error display on the frontend
+        }
+        } catch (error) {
+        console.error('Flight Selection Failed:', error);
+        // Handle error display on the frontend
+        }
+    });
+  </script>
+
+  </body>
+
 </html>
