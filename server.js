@@ -5,7 +5,7 @@ const bodyParser = require('body-parser');
 
 const userRouter = require('./router/userRouter');
 const flightRouter = require('./router/flightRouter');
-const hotelRouter = require('./router/hotelRouter');
+const paymentRouter = require('./router/paymentRouter');
 const overlandRouter = require('./router/overlandRouter');
 
 const app = express();
@@ -24,7 +24,7 @@ app.use(cors());
 
 app.use('/users', userRouter);
 app.use('/flights', flightRouter);
-app.use('/hotels', hotelRouter);
+app.use('/payments', paymentRouter);
 app.use('/overlands', overlandRouter);
 
 app.get('/', async (req, res) => {

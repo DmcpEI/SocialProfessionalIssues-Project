@@ -68,5 +68,26 @@ router.get('/overland', (req, res) => {
   res.render('overland', { overlands: JSON.parse(overlands), guests: JSON.parse(guests), user: user ? JSON.parse(user) : null });
 });
 
+// POST route for hotels page
+router.post('/hotelPage', async (req, res) => {
+  const { overland, guests, user } = req.body;
+
+  try {
+    if (!overland) {
+      res.status(404).send({ status: 'FAILED', error: 'No overland trip found' });
+      return;
+    }
+
+    res.send({ status: 'OK', overland, guests, user, redirect: '/overlands/payment' });
+  } catch (e) {
+    res.status(500).send({ status: 'FAILED', error: e.message });
+  }
+});
+
+router.get('/payment', (req, res) => {
+  const { overland, guests, user } = req.query;
+  res.render('payment', { overland: JSON.parse(overland), guests: JSON.parse(guests), user: user ? JSON.parse(user) : null });
+});
+
 
 module.exports = router;

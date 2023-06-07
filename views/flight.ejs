@@ -26,7 +26,7 @@
       <div class="selection-border">
         <% flights.forEach((flight, index) => { %>
           <div class="input-style">
-            <input type="radio" id="option<%= index + 1 %>" name="option<%= index + 1 %>" value="<%= flight %>">
+            <input type="radio" id="option<%= index + 1 %>" name="flight" value="<%= flight %>">
             <label for="option<%= index + 1 %>" class="poppins-bold-parsley-14px">
               <h2><%= `Flight ${index + 1}` %></h2>
               <p>Price: <%= flight.price %></p>
@@ -34,6 +34,9 @@
           </div>
         <% }); %>
       </div>
+
+      <input type="hidden" value="<%= guests %>" name="guests">
+      <input type="hidden" value="<%= user %>" name="user">
 
       <div>
         <div class="map-frame">

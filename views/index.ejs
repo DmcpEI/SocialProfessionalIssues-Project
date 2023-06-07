@@ -96,9 +96,15 @@
                 <div class="register-button-frame">
                     <a href="/" class="loginbutton">Logout</a>
                 </div>
-                <div class="register-button-frame">
-                    <a href="/" class="registerbutton"><%= user.name %></a>
-                </div>
+                <form id="userForm">
+
+                    <input type="hidden" value="<%= user %>" name="user">
+
+                    <div class="register-button-frame">
+                        <button type="submit" class="registerbutton"><%= user.name %></button>
+                    </div>
+
+                </form>
             <% } %>
         </div>
     </div>
@@ -182,6 +188,7 @@
     </div>
 
     <script>
+
         document.getElementById('seachForm').addEventListener('submit', async (event) => {
             event.preventDefault();
         
@@ -248,6 +255,43 @@
 
             }
         });
+        document.getElementById('userForm').addEventListener('submit', async (event) => {
+            event.preventDefault();
+            
+            const form = event.target;
+            const formData = new FormData(form);
+            const requestData = Object.fromEntries(formData);
+
+            try {
+                const response = await fetch('/users/userPage', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(requestData)
+                });
+
+                if (response.ok) {
+                const data = await response.json();
+                if (data.redirect) {
+                    const searchParams = new URLSearchParams();
+                    Object.entries(data.user).forEach(([key, value]) => {
+                    searchParams.append(key, JSON.stringify(value));
+                    });
+                    const redirectURL = `${data.redirect}?${searchParams.toString()}`;
+                    window.location.href = redirectURL;
+                }
+                } else {
+                const errorData = await response.json();
+                console.error('Search Failed:', errorData.error);
+                // Handle error display on the frontend
+                }
+            } catch (error) {
+                console.error('Search Failed:', error);
+                // Handle error display on the frontend
+            }
+            });
+
       </script>
 
 </body>
