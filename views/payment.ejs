@@ -74,5 +74,40 @@
 
     </div>
 
+    <script>
+        document.getElementById('paymentForm').addEventListener('submit', async (event) => {
+          event.preventDefault();
+    
+          const form = event.target;
+          const formData = new FormData(form);
+          const requestData = Object.fromEntries(formData);
+    
+          try {
+            const response = await fetch('/flights/paymentPage', {
+              method: 'POST',
+              headers: {
+                'Content-Type': 'application/json'
+              },
+              body: JSON.stringify(requestData)
+            });
+    
+            if (response.ok) {
+              const data = await response.json();
+              if (data.redirect) {
+              const { flight, guests, user } = data;
+              window.location.href = `${data.redirect}?flight=${encodeURIComponent(JSON.stringify(flight))}&guests=${encodeURIComponent(JSON.stringify(guests))}&user=${encodeURIComponent(JSON.stringify(user))}`;
+              }
+            } else {
+                const errorData = await response.json();
+                console.error('Flight Selection Failed:', errorData.error);
+                // Handle error display on the frontend
+            }
+            } catch (error) {
+            console.error('Flight Selection Failed:', error);
+            // Handle error display on the frontend
+            }
+        });
+    </script>
+
 </body>
 </html>

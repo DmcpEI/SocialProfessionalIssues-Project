@@ -31,23 +31,12 @@
     gap: 5%;
 }
 
-.loginbutton{
+.button-frame{
     color: var(--white);
     font-family: var(--font-family-poppins);
     font-size: var(--font-size-xxs);
     font-weight: 700;
-    margin-top: 5%;
-}
 
-.registerbutton{
-    color: var(--white);
-    font-family: var(--font-family-poppins);
-    font-size: var(--font-size-xxs);
-    font-weight: 700;
-    margin-top: 5%;
-}
-
-.register-button-frame{
     margin-top: 10%;
     margin-right: 3.9%;
     align-items: center;
@@ -55,7 +44,6 @@
     border-color: var(--white);
     border-radius: 12px;
     display: flex;
-    
     height: 53px;
     justify-content: center;
     padding: 13px 44px;
@@ -122,18 +110,18 @@
     height: 123px;
     position: absolute;
     top: 280px;
-    width: 350%;
-    margin-top:-7%;
-    margin-left: 60%;
+    width: 400%;
+    margin-top:-4%;
+    margin-left: 30%;
     display: flex;
 }
 
 .destination-content-white {
-    margin-top: 2.5%;
-    margin-left: 5.6%;
-    margin-right: 7%;
+    margin-top: 2%;
+    margin-left: 4%;
+    margin-right: 2%;
     height: 50%;
-    width: 70%;
+    width: 80%;
     border-radius: 12px;
     background-color: var(--white);
     padding: 10px 10px;
@@ -144,17 +132,18 @@
 }
 
 .destination-form-style{
-    margin-top: 3.5%;
+    margin-top: 2.6%;
     margin-left: 3%;
 }
 
 .search-style {
     background-color: var(--porsche);
     border-radius: 12px;
-    margin-bottom: 2.2%;
-    margin-top: 2.5%; 
+    border: none;
+    margin-top: 22.5%; 
     padding: 10px 10px;
-
+    height: 81px;
+    width: 90px;
 }
 
 :root {

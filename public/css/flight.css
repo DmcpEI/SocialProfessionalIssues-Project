@@ -38,8 +38,8 @@
     display: flex;
     flex-direction:column;
     gap: 15px;
-    width: 20%;
-    margin-left: 4%;
+    width: 46%;
+    margin-left: 10%;
     padding: 24.5px 21.1px;
 }
 
@@ -47,21 +47,15 @@
     align-items: flex-start;
     align-self: flex-start;
     display: flex;
-    gap: 7%;
 }
 
 .map-frame{
-    align-items: center;
     border: 2px solid;
     border-color: var(--white);
     border-radius: 12px;
     display: flex;
     margin-right: 4%;
-    height: 100%;
-    justify-content: center;
-    padding: 13px 44px;
-    position: relative;
-    width: 95%;
+    margin-left: 16%;
 }
 
 .input-style {
@@ -91,7 +85,13 @@ input[type="radio"]:checked + label {
 
 .next-step-style {
     margin-top: 2%;
-    margin-left: 78%;
+    margin-left: 56%;
+}
+
+.next-step-button{
+    width: 178px;
+    border: none;
+    background-color: #8fe2c4;
 }
 
 .submit-style {
@@ -101,9 +101,6 @@ input[type="radio"]:checked + label {
     padding: 24.5px 21.1px;
 }
 
-.map-image{
-    background-image: url(https://wallpaperaccess.com/full/424833.jpg);
-}
 
 :root{
     --black: rgba(0,0,0,1);

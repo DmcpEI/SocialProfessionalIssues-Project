@@ -86,18 +86,18 @@
 
         <div class="gap-register-login">
             <% if (typeof user === 'undefined' || user === null) { %>
-                <div class="register-button-frame">
-                    <a href="/login" class="loginbutton">Login</a>
+                <div>
+                    <a href="/login" class="button-frame">Login</a>
                 </div>
-                <div class="register-button-frame">
-                    <a href="/register" class="registerbutton">Register</a>
+                <div>
+                    <a href="/register" class="button-frame">Register</a>
                 </div>
             <% } else { %>
-                <div class="register-button-frame">
-                    <a href="/" class="loginbutton">Logout</a>
+                <div>
+                    <a href="/" class="button-frame">Logout</a>
                 </div>
-                <div class="register-button-frame">
-                    <a href="/" class="registerbutton"><%= user.name %></a>
+                <div>
+                    <a href="/" class="button-frame"><%= user.name %></a>
                 </div>
             <% } %>
         </div>
@@ -167,12 +167,12 @@
                 
                 <% if (typeof user === 'undefined' || user === null) { %>
                 </form>
-                    <div class="search-style">
-                        <button class="poppins-bold-white-14px" style="width: 100%; border: none; background-color: var(--porsche); margin-top: 32%;" onclick="location.href = 'http://localhost:3000/login';">Search</button>
+                    <div>
+                        <button class="poppins-bold-white-14px search-style" onclick="location.href = 'http://localhost:3000/login';">Search</button>
                     </div>
                 <% } else { %>
-                    <div class="search-style">
-                        <button class="poppins-bold-white-14px" style="width: 100%; border: none; background-color: var(--porsche); margin-top: 32%;" type="submit">Search</button>
+                    <div>
+                        <button class="poppins-bold-white-14px search-style" type="submit">Search</button>
                     </div>
                 </form>
                 <% } %>
