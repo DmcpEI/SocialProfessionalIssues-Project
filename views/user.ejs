@@ -33,7 +33,7 @@
         <div class="gap-form-input">
 
             <div class="input-style">
-                <input type="text" placeholder="Name" name="name" value="" class="poppins-bold-parsley-14px" style="background-color: #e5f8e4; border: none;">
+                <input type="text" placeholder="Name" name="name" class="poppins-bold-parsley-14px" style="background-color: #e5f8e4; border: none;">
             </div>
 
             <div class="input-style">
@@ -70,28 +70,29 @@
     </form>
   
     <script>
-      
       document.addEventListener('DOMContentLoaded', () => {
-
         const urlParams = new URLSearchParams(window.location.search);
         const encodedUser = urlParams.get('user');
-        const user = JSON.parse(decodeURIComponent(encodedUser));
+        const decodedUser = JSON.parse(decodeURIComponent(encodedUser || 'null'));
 
-        document.querySelector('input[name="name"]').value = user.name;
-        document.querySelector('input[name="birthdate"]').value = user.birthdate;
-        document.querySelector('input[name="email"]').value = user.email;
-        document.querySelector('input[name="country"]').value = user.country;
-        document.querySelector('input[name="passport"]').value = user.passportNumber;
-        document.querySelector('input[name="password"]').value = user.password;
+        if (decodedUser) {
+          const { name, birthdate, email, country, passportNumber, password } = decodedUser;
+          document.querySelector('input[name="name"]').value = name || '';
+          document.querySelector('input[name="birthdate"]').value = birthdate || '';
+          document.querySelector('input[name="email"]').value = email || '';
+          document.querySelector('input[name="country"]').value = country || '';
+          document.querySelector('input[name="passport"]').value = passportNumber || '';
+          document.querySelector('input[name="password"]').value = password || '';
+        }
       });
-
+    
       document.getElementById('updateForm').addEventListener('submit', async (event) => {
         event.preventDefault();
-  
+    
         const form = event.target;
         const formData = new FormData(form);
         const requestData = Object.fromEntries(formData);
-  
+    
         try {
           const response = await fetch('/users/<%= user._id %>', {
             method: 'PUT',
@@ -100,7 +101,7 @@
             },
             body: JSON.stringify(requestData)
           });
-  
+    
           if (response.ok) {
             const data = await response.json();
             if (data.redirect) {

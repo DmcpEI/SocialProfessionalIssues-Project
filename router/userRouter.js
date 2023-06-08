@@ -64,7 +64,7 @@ router.post('/userPage', async (req, res) => {
       return res.status(401).json({ message: 'No user' });
     }
 
-    res.send({ status: 'OK', user: user, redirect: '/users/userPage' });
+    res.send({ status: 'OK', user, redirect: '/users/userPage' });
   } catch (error) {
     console.error(error);
     res.status(500).json({ message: 'Internal server error' });

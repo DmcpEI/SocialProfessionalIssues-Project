@@ -196,6 +196,9 @@
             const formData = new FormData(form);
             const requestData = Object.fromEntries(formData);
 
+            const urlParams = new URLSearchParams(window.location.search);
+            const encodedUser = urlParams.get('user');
+
             var selectedType = document.getElementById('type').value;
     
             if(selectedType=='flights'){
@@ -213,7 +216,7 @@
                         const data = await response.json();
                         if (data.redirect) {
                         const { flights, guests, user } = data;
-                        window.location.href = `${data.redirect}?flights=${encodeURIComponent(JSON.stringify(flights))}&guests=${encodeURIComponent(JSON.stringify(guests))}&user=${encodeURIComponent(JSON.stringify(user))}`;
+                        window.location.href = `${data.redirect}?flights=${encodeURIComponent(JSON.stringify(flights))}&guests=${encodeURIComponent(JSON.stringify(guests))}&user=${encodedUser}`;
                         }
                     } else {
                         const errorData = await response.json();
@@ -241,7 +244,7 @@
                         const data = await response.json();
                         if (data.redirect) {
                         const { overlands, guests, user } = data;
-                        window.location.href = `${data.redirect}?overlands=${encodeURIComponent(JSON.stringify(overlands))}&guests=${encodeURIComponent(JSON.stringify(guests))}&user=${encodeURIComponent(JSON.stringify(user))}`;
+                        window.location.href = `${data.redirect}?overlands=${encodeURIComponent(JSON.stringify(overlands))}&guests=${encodeURIComponent(JSON.stringify(guests))}&user=${encodedUser}`;
                         }
                     } else {
                         const errorData = await response.json();
@@ -257,10 +260,13 @@
         });
         document.getElementById('userForm').addEventListener('submit', async (event) => {
             event.preventDefault();
-            
+
             const form = event.target;
             const formData = new FormData(form);
             const requestData = Object.fromEntries(formData);
+
+            const urlParams = new URLSearchParams(window.location.search);
+            const encodedUser = urlParams.get('user');
 
             try {
                 const response = await fetch('/users/userPage', {
@@ -274,12 +280,8 @@
                 if (response.ok) {
                 const data = await response.json();
                 if (data.redirect) {
-                    const searchParams = new URLSearchParams();
-                    Object.entries(data.user).forEach(([key, value]) => {
-                    searchParams.append(key, JSON.stringify(value));
-                    });
-                    const redirectURL = `${data.redirect}?${searchParams.toString()}`;
-                    window.location.href = redirectURL;
+                    const { user } = data;
+                    window.location.href = `${data.redirect}?user=${encodedUser}`;
                 }
                 } else {
                 const errorData = await response.json();
@@ -290,7 +292,7 @@
                 console.error('Search Failed:', error);
                 // Handle error display on the frontend
             }
-            });
+        });
 
       </script>
 
