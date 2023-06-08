@@ -28,21 +28,21 @@
         <h1 class="title-middle poppins-black-white-36px">Edit Profile</h1>
     </div>
 
-    <form class="form-border" id="registrationForm">
+    <form class="form-border" id="updateForm">
 
         <div class="gap-form-input">
 
             <div class="input-style">
-                <input type="text" placeholder="Name" value="" name="name" class="poppins-bold-parsley-14px" style="background-color: #e5f8e4; border: none;">
+                <input type="text" placeholder="Name" name="name" class="poppins-bold-parsley-14px" style="background-color: #e5f8e4; border: none;">
             </div>
 
             <div class="input-style">
                 <label class="poppins-bold-parsley-14px">Birthdate:</label>
-                <input type="date" placeholder="Date" name="birthdate" value="" class="poppins-bold-parsley-14px" style="background-color: #e5f8e4; border: none;">
+                <input type="date" placeholder="Date" name="birthdate" class="poppins-bold-parsley-14px" style="background-color: #e5f8e4; border: none;">
             </div>
 
             <div class="input-style">
-                <input type="text" placeholder="Email" name="email" value="" class="poppins-bold-parsley-14px" style="background-color: #e5f8e4; border: none;">
+                <input type="text" placeholder="Email" name="email" class="poppins-bold-parsley-14px" style="background-color: #e5f8e4; border: none;">
             </div>
 
         </div>
@@ -50,15 +50,15 @@
         <div class="gap-form-input">
 
             <div class="input-style">
-                <input type="text" placeholder="Country" name="country" value="" class="poppins-bold-parsley-14px" style="background-color: #e5f8e4; border: none;">
+                <input type="text" placeholder="Country" name="country" class="poppins-bold-parsley-14px" style="background-color: #e5f8e4; border: none;">
             </div>
 
             <div class="input-style">
-                <input type="text" placeholder="Passport Number" name="passport" value="" class="poppins-bold-parsley-14px" style="background-color: #e5f8e4; border: none;">
+                <input type="text" placeholder="Passport Number" name="passport" class="poppins-bold-parsley-14px" style="background-color: #e5f8e4; border: none;">
             </div>
 
             <div class="input-style">
-                <input type="password" placeholder="Password" name="password" value="" class="poppins-bold-parsley-14px" style="background-color: #e5f8e4; border: none;">
+                <input type="password" placeholder="Password" name="password" class="poppins-bold-parsley-14px" style="background-color: #e5f8e4; border: none;">
             </div>
 
         </div>
@@ -70,22 +70,38 @@
     </form>
   
     <script>
-      document.getElementById('registrationForm').addEventListener('submit', async (event) => {
+      document.addEventListener('DOMContentLoaded', () => {
+        const urlParams = new URLSearchParams(window.location.search);
+        const encodedUser = urlParams.get('user');
+        const decodedUser = JSON.parse(decodeURIComponent(encodedUser || 'null'));
+
+        if (decodedUser) {
+          const { name, birthdate, email, country, passportNumber, password } = decodedUser;
+          document.querySelector('input[name="name"]').value = name || '';
+          document.querySelector('input[name="birthdate"]').value = birthdate || '';
+          document.querySelector('input[name="email"]').value = email || '';
+          document.querySelector('input[name="country"]').value = country || '';
+          document.querySelector('input[name="passport"]').value = passportNumber || '';
+          document.querySelector('input[name="password"]').value = password || '';
+        }
+      });
+    
+      document.getElementById('updateForm').addEventListener('submit', async (event) => {
         event.preventDefault();
-  
+    
         const form = event.target;
         const formData = new FormData(form);
         const requestData = Object.fromEntries(formData);
-  
+    
         try {
-          const response = await fetch('/users/', {
-            method: 'POST',
+          const response = await fetch('/users/<%= user._id %>', {
+            method: 'PUT',
             headers: {
               'Content-Type': 'application/json'
             },
             body: JSON.stringify(requestData)
           });
-  
+    
           if (response.ok) {
             const data = await response.json();
             if (data.redirect) {
@@ -93,11 +109,11 @@
             }
           } else {
             const errorData = await response.json();
-            console.error('Registration failed:', errorData.error);
+            console.error('Update failed:', errorData.error);
             // Handle error display on the frontend
           }
         } catch (error) {
-          console.error('Registration failed:', error);
+          console.error('Update failed:', error);
           // Handle error display on the frontend
         }
       });

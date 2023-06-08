@@ -96,9 +96,15 @@
                 <div>
                     <a href="/" class="button-frame">Logout</a>
                 </div>
-                <div>
-                    <a href="/" class="button-frame"><%= user.name %></a>
-                </div>
+                <form id="userForm">
+
+                    <input type="hidden" value="<%= user %>" name="user">
+
+                    <div class="register-button-frame">
+                        <button type="submit" class="registerbutton"><%= user.name %></button>
+                    </div>
+
+                </form>
             <% } %>
         </div>
     </div>
@@ -182,12 +188,16 @@
     </div>
 
     <script>
+
         document.getElementById('seachForm').addEventListener('submit', async (event) => {
             event.preventDefault();
         
             const form = event.target;
             const formData = new FormData(form);
             const requestData = Object.fromEntries(formData);
+
+            const urlParams = new URLSearchParams(window.location.search);
+            const encodedUser = urlParams.get('user');
 
             var selectedType = document.getElementById('type').value;
     
@@ -206,7 +216,7 @@
                         const data = await response.json();
                         if (data.redirect) {
                         const { flights, guests, user } = data;
-                        window.location.href = `${data.redirect}?flights=${encodeURIComponent(JSON.stringify(flights))}&guests=${encodeURIComponent(JSON.stringify(guests))}&user=${encodeURIComponent(JSON.stringify(user))}`;
+                        window.location.href = `${data.redirect}?flights=${encodeURIComponent(JSON.stringify(flights))}&guests=${encodeURIComponent(JSON.stringify(guests))}&user=${encodedUser}`;
                         }
                     } else {
                         const errorData = await response.json();
@@ -234,7 +244,7 @@
                         const data = await response.json();
                         if (data.redirect) {
                         const { overlands, guests, user } = data;
-                        window.location.href = `${data.redirect}?overlands=${encodeURIComponent(JSON.stringify(overlands))}&guests=${encodeURIComponent(JSON.stringify(guests))}&user=${encodeURIComponent(JSON.stringify(user))}`;
+                        window.location.href = `${data.redirect}?overlands=${encodeURIComponent(JSON.stringify(overlands))}&guests=${encodeURIComponent(JSON.stringify(guests))}&user=${encodedUser}`;
                         }
                     } else {
                         const errorData = await response.json();
@@ -248,6 +258,42 @@
 
             }
         });
+        document.getElementById('userForm').addEventListener('submit', async (event) => {
+            event.preventDefault();
+
+            const form = event.target;
+            const formData = new FormData(form);
+            const requestData = Object.fromEntries(formData);
+
+            const urlParams = new URLSearchParams(window.location.search);
+            const encodedUser = urlParams.get('user');
+
+            try {
+                const response = await fetch('/users/userPage', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(requestData)
+                });
+
+                if (response.ok) {
+                const data = await response.json();
+                if (data.redirect) {
+                    const { user } = data;
+                    window.location.href = `${data.redirect}?user=${encodedUser}`;
+                }
+                } else {
+                const errorData = await response.json();
+                console.error('Search Failed:', errorData.error);
+                // Handle error display on the frontend
+                }
+            } catch (error) {
+                console.error('Search Failed:', error);
+                // Handle error display on the frontend
+            }
+        });
+
       </script>
 
 </body>

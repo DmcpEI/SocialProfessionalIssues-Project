@@ -26,13 +26,16 @@
       <div class="selection-border">
         <% flights.forEach((flight, index) => { %>
           <div class="input-style">
-            <input type="radio" id="option<%= index + 1 %>" name="flight" value="<%= flight %>">
+            <input type="radio" id="option<%= index + 1 %>" name="flight" value="<%= encodeURIComponent(JSON.stringify(flight)) %>">
             <label for="option<%= index + 1 %>" class="poppins-bold-parsley-14px">
               <p><%= `Flight ${index + 1}` %> - <%= flight.price %> $</p>
             </label>
           </div>
         <% }); %>
       </div>
+
+      <input type="hidden" value="<%= guests %>" name="guests">
+      <input type="hidden" value="<%= user %>" name="user">
 
       <div>
         <div>
@@ -56,6 +59,10 @@
       const formData = new FormData(form);
       const requestData = Object.fromEntries(formData);
 
+      const urlParams = new URLSearchParams(window.location.search);
+      const encodedUser = urlParams.get('user');
+      const encodedFlight = document.querySelector('input[name="flight"]:checked').value;
+
       try {
         const response = await fetch('/flights/paymentPage', {
           method: 'POST',
@@ -69,7 +76,7 @@
           const data = await response.json();
           if (data.redirect) {
           const { flight, guests, user } = data;
-          window.location.href = `${data.redirect}?flight=${encodeURIComponent(JSON.stringify(flight))}&guests=${encodeURIComponent(JSON.stringify(guests))}&user=${encodeURIComponent(JSON.stringify(user))}`;
+          window.location.href = `${data.redirect}?flight=${encodedFlight}&guests=${encodeURIComponent(JSON.stringify(guests))}&user=${encodedUser}`;
           }
         } else {
             const errorData = await response.json();
