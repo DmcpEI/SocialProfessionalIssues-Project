@@ -8,7 +8,7 @@
     align-items: flex-start;
     align-self: flex-start;
     display: flex;
-    gap: 59%;
+    gap: 60.7%;
 }
 
 .logo{
@@ -20,23 +20,19 @@
     color: var(--white);
 }
 
-.registerbutton{
+.button-frame{
     color: var(--white);
     font-family: var(--font-family-poppins);
     font-size: var(--font-size-1);
     font-weight: 700;
-    margin-top: 5%;
-}
 
-.register-button-frame{
-    margin-top: 3.2%;
+    margin-top: 10%;
     margin-right: 3.9%;
     align-items: center;
     border: 2px solid;
     border-color: var(--white);
     border-radius: 12px;
     display: flex;
-    
     height: 53px;
     justify-content: center;
     padding: 13px 44px;
@@ -62,11 +58,12 @@
 }
 
 .input-style {
-    align-items: flex-start;
+
+    width: 81%;
+    border: none;
+
     background-color: var(--frostee);
     border-radius: 12px;
-    display: flex;
-    justify-content: flex-end;
     padding: 24.5px 21.1px;
 }
 
@@ -75,6 +72,8 @@
     border-radius: 12px;
     margin-top: 10%; 
     padding: 24.5px 21.1px;
+    border: none;
+    width: 100%;
 }
 
 :root{
