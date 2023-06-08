@@ -51,6 +51,21 @@
     width: 105px;
 }
 
+.button-user-frame{
+    color: var(--white);
+    font-family: var(--font-family-poppins);
+    font-size: var(--font-size-xxs);
+    font-weight: 700;
+    
+    background-color: transparent;
+    margin-top: 10%;
+    border: 2px solid;
+    border-color: var(--white);
+    border-radius: 12px;
+    width: 197px; 
+    height: 83px;
+}
+
 .mountains { 
     align-items: center; 
     display: flex; 

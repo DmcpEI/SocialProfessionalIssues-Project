@@ -15,24 +15,49 @@
         <a href="/" class="logo-color">Travel App</a>
     </div>
 
-    <div class="price-border">
+    <form id="paymentForm">
+        <div class="price-border">
 
-        <div class="poppins-bold-black-14px">
-            Order #83r8237576734
+            <input type="hidden" value="<%= user._id%>">
+
+            <%if (typeof flight === undefined) { %>
+                <div class="poppins-bold-black-14px">
+                    Order #<%= flight._id %>
+                </div>
+
+                <div class="gap-price-description">
+
+                    <div class="poppins-bold-black-14px">
+                        Price: <%= flight.price * guests%>
+                    </div>
+
+                    <div class="poppins-bold-black-14px">
+                        Description: Client: <%= user.name%>, Email: <%= user.email%>, Type of trip: Flight, Countries: <%= flight.origin%>/<%= flight.destination%>
+                    </div>
+                </div>
+
+            <%} else { %>
+
+                <input type="hidden" value="<%= user._id%>">
+
+                <div class="poppins-bold-black-14px">
+                    Order #<%= overland._id %>
+                </div>
+    
+                <div class="gap-price-description">
+    
+                    <div class="poppins-bold-black-14px" style="width: 250px;">
+                        Price: <%= overland.price * guests%>$
+                    </div>
+
+                    <div class="poppins-bold-black-14px">
+                        Description: <h4 class="description-style">Client: <%= user.name%> / Email: <%= user.email%> / Type of trip: Overland / Countries: <%= overland.origin%>,<%=overland.stops%>,<%=overland.destination%> / Hotels: <%=overland.hotels%> </h5>
+                    </div>
+                </div>
+
+            <% } %>
         </div>
-
-        <div class="gap-price-description">
-
-            <div class="poppins-bold-black-14px">
-                Price$
-            </div>
-
-            <div class="poppins-bold-black-14px">
-                Description: 
-            </div>
-
-        </div>
-    </div>
+    </form>
 
     
     <div>
@@ -81,9 +106,13 @@
           const form = event.target;
           const formData = new FormData(form);
           const requestData = Object.fromEntries(formData);
-    
+
+          const urlParams = new URLSearchParams(window.location.search);
+          const encodedUser = urlParams.get('user');
+          const encodedOverland = document.querySelector('input[name="payment"]:checked').value;
+            
           try {
-            const response = await fetch('/flights/paymentPage', {
+            const response = await fetch('/users/login', {
               method: 'POST',
               headers: {
                 'Content-Type': 'application/json'
@@ -94,16 +123,16 @@
             if (response.ok) {
               const data = await response.json();
               if (data.redirect) {
-              const { flight, guests, user } = data;
-              window.location.href = `${data.redirect}?flight=${encodeURIComponent(JSON.stringify(flight))}&guests=${encodeURIComponent(JSON.stringify(guests))}&user=${encodeURIComponent(JSON.stringify(user))}`;
+              const { user } = data;
+              window.location.href = `${data.redirect}?user=${encodedUser}`;
               }
             } else {
                 const errorData = await response.json();
-                console.error('Flight Selection Failed:', errorData.error);
+                console.error('Payment Failed:', errorData.error);
                 // Handle error display on the frontend
             }
             } catch (error) {
-            console.error('Flight Selection Failed:', error);
+            console.error('Payment Failed:', error);
             // Handle error display on the frontend
             }
         });
