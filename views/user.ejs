@@ -14,13 +14,13 @@
 
     <div class="gap-logo-button">
 
-        <div class="logo poppins-black-white-36px">
-            <a href="/" class="logo-color">Travel App</a>
-        </div>
+      <div class="logo poppins-black-white-36px">
+        <a class="logo-color">Travel App</a>
+      </div>
 
-        <div class="login-button-frame">
-            <a href="/login" class="login-button">Log Out</a>
-        </div>
+      <div class="login-button-frame">
+          <a href="/login" class="login-button">Log Out</a>
+      </div>
 
     </div>
 
@@ -76,12 +76,12 @@
         const decodedUser = JSON.parse(decodeURIComponent(encodedUser || 'null'));
 
         if (decodedUser) {
-          const { name, birthdate, email, country, passportNumber, password } = decodedUser;
+          const { name, birthdate, email, country, passport, password } = decodedUser;
           document.querySelector('input[name="name"]').value = name || '';
           document.querySelector('input[name="birthdate"]').value = birthdate || '';
           document.querySelector('input[name="email"]').value = email || '';
           document.querySelector('input[name="country"]').value = country || '';
-          document.querySelector('input[name="passport"]').value = passportNumber || '';
+          document.querySelector('input[name="passport"]').value = passport || '';
           document.querySelector('input[name="password"]').value = password || '';
         }
       });
@@ -92,6 +92,8 @@
         const form = event.target;
         const formData = new FormData(form);
         const requestData = Object.fromEntries(formData);
+
+        const urlParams = new URLSearchParams(window.location.search);
     
         try {
           const response = await fetch('/users/<%= user._id %>', {
@@ -105,7 +107,8 @@
           if (response.ok) {
             const data = await response.json();
             if (data.redirect) {
-              window.location.href = data.redirect;
+            const { user } = data;
+            window.location.href = `${data.redirect}?user=${encodeURIComponent(JSON.stringify(user))}`;
             }
           } else {
             const errorData = await response.json();
