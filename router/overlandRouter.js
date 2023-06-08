@@ -69,7 +69,7 @@ router.get('/overland', (req, res) => {
 });
 
 // POST route for hotels page
-router.post('/hotelPage', async (req, res) => {
+router.post('/paymentPage', async (req, res) => {
   const { overland, guests, user } = req.body;
 
   try {

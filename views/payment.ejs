@@ -12,7 +12,7 @@
 <body class="color-background">
 
     <div class="logo poppins-black-white-36px">
-        <a href="/" class="logo-color">Travel App</a>
+        <a class="logo-color">Travel App</a>
     </div>
 
     <form id="paymentForm">
@@ -20,7 +20,7 @@
 
             <input type="hidden" value="<%= user._id%>">
 
-            <%if (typeof flight === undefined) { %>
+            <%if (typeof overland === 'undefined' || overland === null) { %>
                 <div class="poppins-bold-black-14px">
                     Order #<%= flight._id %>
                 </div>
@@ -28,15 +28,19 @@
                 <div class="gap-price-description">
 
                     <div class="poppins-bold-black-14px">
-                        Price: <%= flight.price * guests%>
+                        Price: <%= flight.price * guests%>$
                     </div>
 
                     <div class="poppins-bold-black-14px">
-                        Description: Client: <%= user.name%>, Email: <%= user.email%>, Type of trip: Flight, Countries: <%= flight.origin%>/<%= flight.destination%>
+                        Description: <h4 class="description-style">Client: <%= user.name%>, Email: <%= user.email%>, Type of trip: Flight, Countries: <%= flight.origin%>/<%= flight.destination%> </h4>
                     </div>
                 </div>
 
-            <%} else { %>
+                <input type="hidden" name="description" value="Client: <%= user.name%> / Email: <%= user.email%> / Type of trip: Flight / Countries: <%= flight.origin%>,<%=flight.stops%>,<%=flight.destination%>" >
+                <input type="hidden" name="total" value=<%= flight.price * guests%>>
+                <input type="hidden" name="type" value="flight">
+
+            <%} if ((typeof flight === 'undefined' || flight === null)) { %>
 
                 <input type="hidden" value="<%= user._id%>">
 
@@ -51,53 +55,59 @@
                     </div>
 
                     <div class="poppins-bold-black-14px">
-                        Description: <h4 class="description-style">Client: <%= user.name%> / Email: <%= user.email%> / Type of trip: Overland / Countries: <%= overland.origin%>,<%=overland.stops%>,<%=overland.destination%> / Hotels: <%=overland.hotels%> </h5>
+                        Description: <h4 class="description-style">Client: <%= user.name%> / Email: <%= user.email%> / Type of trip: Overland / Countries: <%= overland.origin%>,<%=overland.stops%>,<%=overland.destination%> / Hotels: <%=overland.hotels%> </h4>
                     </div>
                 </div>
 
+                <input type="hidden" name="description" value="Client: <%= user.name%> / Email: <%= user.email%> / Type of trip: Overland / Countries: <%= overland.origin%>,<%=overland.stops%>,<%=overland.destination%> / Hotels: <%=overland.hotels%>" >
+                <input type="hidden" name="total" value=<%= overland.price * guests%>>
+                <input type="hidden" name="type" value="overland">
+
             <% } %>
         </div>
-    </form>
 
+        <input type="hidden" name="guests" value=<%=guests%>>
+        <input type="hidden" name="userId" value="<%=user._id%>">
     
     <div>
         <div>
             <h3 class="poppins-bold-black-25px title-middle">Select your payment method:</h3>
         </div>
 
-        <div class="title-middle">
-            <div class="gap-methods">
-                <input type="radio" name="paymentOptions" id="option1">
-                <label for="option1" class="poppins-bold-black-14px">Credit or debit card (Visa / Mastercard / MIR)</label>
+            <div class="title-middle">
+                <div class="gap-methods">
+                    <input type="radio" name="paymentMethod" id="option1" value="Card">
+                    <label for="option1" class="poppins-bold-black-14px">Credit or debit card (Visa / Mastercard / MIR)</label>
+                </div>
+
+                <div class="gap-methods">
+                    <input type="radio" name="paymentMethod" id="option2" value="Apple Pay">
+                    <label for="option2" class="poppins-bold-black-14px">Apple pay</label>
+                </div>
+
+                <div class="gap-methods">
+                    <input type="radio" name="paymentMethod" id="option3" value="Paypal">
+                    <label for="option3" class="poppins-bold-black-14px">Paypal</label>
+                </div>
+
+                <div class="gap-methods">
+                    <input type="radio" name="paymentMethod" id="option4" value="Bank Transfer">
+                    <label for="option4" class="poppins-bold-black-14px">Bank Transfer</label>
+                </div>
             </div>
 
-            <div class="gap-methods">
-                <input type="radio" name="paymentOptions" id="option2">
-                <label for="option2" class="poppins-bold-black-14px">Apple pay</label>
-            </div>
+            <div class="title-middle">
+                <div class="go-back-style">
+                    <button class="go-back-button poppins-bold-black-14px">Go Back</button>
+                </div>
 
-            <div class="gap-methods">
-                <input type="radio" name="paymentOptions" id="option3">
-                <label for="option3" class="poppins-bold-black-14px">Paypal</label>
+                <div class="continue-style">
+                    <button class="continue-button poppins-bold-black-14px" type="submit">Continue</button>
+                </div>
             </div>
-
-            <div class="gap-methods">
-                <input type="radio" name="paymentOptions" id="option4">
-                <label for="option4" class="poppins-bold-black-14px">Bank Transfer</label>
-            </div>
-        </div>
-
-        <div class="title-middle">
-            <div class="go-back-style">
-                <button class="go-back-button poppins-bold-black-14px">Go Back</button>
-            </div>
-
-            <div class="continue-style">
-                <button class="continue-button poppins-bold-black-14px">Continue</button>
-            </div>
-        </div>
 
     </div>
+    </form>
 
     <script>
         document.getElementById('paymentForm').addEventListener('submit', async (event) => {
@@ -109,10 +119,9 @@
 
           const urlParams = new URLSearchParams(window.location.search);
           const encodedUser = urlParams.get('user');
-          const encodedOverland = document.querySelector('input[name="payment"]:checked').value;
-            
+                      
           try {
-            const response = await fetch('/users/login', {
+            const response = await fetch('/payments/', {
               method: 'POST',
               headers: {
                 'Content-Type': 'application/json'
