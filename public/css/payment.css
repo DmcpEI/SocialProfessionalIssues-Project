@@ -20,16 +20,16 @@
     24.66px 29.59px 25.48px #0000000b, 41.49px 49.79px 46.85px #0000000e, 64.02px 76.82px 80px #00000012;
     display: flex;
     flex-direction:column;
-    gap: 15px;
-    width: 35%;
+    gap: 20px;
+    width: 45%;
     margin-top: 3%;
     margin-left: 25%;
-    padding: 20px 70px;
+    padding: 20px 20px;
 }
 
 .gap-price-description {
     display:flex;
-    gap: 5%;
+    gap: 2%;
 }
 
 .title-middle{
@@ -75,12 +75,18 @@
     background-color: #FFDF54;
 }
 
+.description-style {
+    color: var(--grey);
+    margin-top: -0.5%;
+}
+
 :root{
     --black: rgba(0,0,0,1);
     --parsley: rgba(17,93,38,1);
     --frostee: rgba(230, 249, 228, 1);
     --porsche: rgba(231, 172, 114, 1);
     --white: rgba(255, 255, 255, 1);
+    --grey: rgb(103, 102, 102);
 
     --font-size-m: 14px;
     --font-size-1: 20px;

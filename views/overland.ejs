@@ -26,7 +26,7 @@
       <div class="selection-border">
         <% overlands.forEach((overland, index) => { %>
           <div class="input-style">
-            <input type="radio" id="option<%= index + 1 %>" name="overland" value="<%= overland %>">
+            <input type="radio" id="option<%= index + 1 %>" name="overland" value="<%= encodeURIComponent(JSON.stringify(overland)) %>">
             <label for="option<%= index + 1 %>" class="poppins-bold-parsley-14px">
               <p><%= `Overland Trip ${index + 1}` %> - <%= overland.price * guests %> $</p>
             </label>
@@ -58,6 +58,10 @@
       const formData = new FormData(form);
       const requestData = Object.fromEntries(formData);
 
+      const urlParams = new URLSearchParams(window.location.search);
+      const encodedUser = urlParams.get('user');
+      const encodedOverland = document.querySelector('input[name="overland"]:checked').value;
+
       try {
         const response = await fetch('/overlands/hotelPage', {
           method: 'POST',
@@ -71,7 +75,7 @@
           const data = await response.json();
           if (data.redirect) {
           const { overland, guests, user } = data;
-          window.location.href = `${data.redirect}?overland=${encodeURIComponent(JSON.stringify(overland))}&guests=${encodeURIComponent(JSON.stringify(guests))}&user=${encodeURIComponent(JSON.stringify(user))}`;
+          window.location.href = `${data.redirect}?overland=${encodedOverland}&guests=${encodeURIComponent(JSON.stringify(guests))}&user=${encodedUser}`;
           }
         } else {
             const errorData = await response.json();
