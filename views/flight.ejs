@@ -28,7 +28,7 @@
           <div class="input-style">
             <input type="radio" id="option<%= index + 1 %>" name="flight" onclick="showImage('<%=flight.image%>')" value="<%= encodeURIComponent(JSON.stringify(flight)) %>">
             <label for="option<%= index + 1 %>" class="poppins-bold-parsley-14px">
-              <p><%= `Flight ${index + 1}` %> - <%= flight.price %> $</p>
+              <p><%= `Flight ${index + 1}` %> - <%= flight.price * guests %> $</p>
             </label>
           </div>
         <% }); %>
