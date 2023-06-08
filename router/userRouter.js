@@ -42,7 +42,7 @@ router.post('/login', async (req, res) => {
       return res.status(401).json({ message: 'Invalid email' });
     }
 
-    res.send({ status: 'OK', user, redirect: '/users/login' });
+    res.send({ status: 'OK', user, redirect: '/users/index' });
 
   } catch (error) {
     console.error(error);
@@ -50,7 +50,7 @@ router.post('/login', async (req, res) => {
   }
 });
 
-router.get('/login', (req, res) => {
+router.get('/index', (req, res) => {
   const { user } = req.query;
   res.render('index', { user: user ? JSON.parse(user) : null });
 });
@@ -82,17 +82,22 @@ router.put('/:userId', async (req, res) => {
     const userId = req.params.userId;
     const updatedUserData = req.body;
 
-    if (!updatedUserData.username || !updatedUserData.email || !updatedUserData.password) {
+    if (!updatedUserData.name || !updatedUserData.email || !updatedUserData.password) {
       return res.status(400).send({ status: 'FAILED', error: 'Missing required fields' });
     }
 
+    console.log(userId);
+    console.log(updatedUserData);
+
     const updatedUser = await updateUser(userId, updatedUserData);
+
+    console.log(updatedUser);
 
     if (!updatedUser) {
       return res.status(404).send({ status: 'FAILED', error: 'User not found' });
     }
 
-    res.render('index', { user: updatedUser ? JSON.parse(updatedUser) : null });
+    res.send({ status: 'OK', user: updatedUser, redirect: '/users/index' });
   } catch (error) {
     res.status(500).send({ status: 'FAILED', error: 'Internal server error' });
   }

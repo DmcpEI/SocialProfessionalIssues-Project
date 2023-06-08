@@ -12,7 +12,7 @@
 <body class="color-background">
 
   <div class="logo poppins-black-white-36px">
-    <a href="/" class="logo-color">Travel App</a>
+    <a class="logo-color">Travel App</a>
   </div>
 
   <div class="title-left-space">
@@ -26,7 +26,7 @@
       <div class="selection-border">
         <% flights.forEach((flight, index) => { %>
           <div class="input-style">
-            <input type="radio" id="option<%= index + 1 %>" name="flight" value="<%= encodeURIComponent(JSON.stringify(flight)) %>">
+            <input type="radio" id="option<%= index + 1 %>" name="flight" onclick="showImage('<%=flight.image%>')" value="<%= encodeURIComponent(JSON.stringify(flight)) %>">
             <label for="option<%= index + 1 %>" class="poppins-bold-parsley-14px">
               <p><%= `Flight ${index + 1}` %> - <%= flight.price %> $</p>
             </label>
@@ -39,7 +39,7 @@
 
       <div>
         <div>
-          <img class="map-frame" style="width: 60%;" src="https://wallpaperaccess.com/full/424833.jpg">
+          <img id="selected-image" class="map-frame" >        
         </div>
 
         <div class="next-step-style">
@@ -88,6 +88,11 @@
         // Handle error display on the frontend
         }
     });
+
+    function showImage(imageUrl) {
+      var imgElement = document.getElementById('selected-image');
+      imgElement.src = imageUrl;
+    }
   </script>
 
   </body>
